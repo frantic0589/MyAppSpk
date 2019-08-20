@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">MyAppSpk</string>
+    <string name="search_box_text">Поиск по названию компании, ИНН, ОГРН или ФИО</string>
+    <string name="button_search">Найти</string>
+</resources>
