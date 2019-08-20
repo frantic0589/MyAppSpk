@@ -28,26 +28,25 @@ public class MainActivity extends Activity {
 
     public void search(View view)
     {
-        //String searchText = searchParameter.getText().toString();
+        String searchText = searchParameter.getText().toString();
 
         NetworkService.getInstance()
                 .getSearchCompany()
-                //.getPostWithID()
-                .getPostWithID(true, "3849010290", 1)
-                .enqueue(new Callback<CompanyCard>() {
+                .getPostWithID(true, searchText, 10)
+                .enqueue(new Callback<Companies>() {
                     @Override
-                    public void onResponse(Call<CompanyCard> call, Response<CompanyCard> response) {
+                    public void onResponse(Call<Companies> call, Response<Companies> response) {
 
 
-                        CompanyCard company = response.body();
+                        Companies company = response.body();
                         
-                        responceText.append(company.getFullName() + "\n");
-                        responceText.append(company.getInn() + "\n");
-                        responceText.append(company.getKpp() + "\n");
+                        responceText.append(company.getDocs() + "\n");
+                        responceText.append(company.getTotal() + "\n");
+
                     }
 
                     @Override
-                    public void onFailure(Call<CompanyCard> call, Throwable t) {
+                    public void onFailure(Call<Companies> call, Throwable t) {
                         responceText.append("Произошла ошибка при получении запроса!");
                         t.printStackTrace();
                     }
