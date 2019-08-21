@@ -1,10 +1,19 @@
 package com.example.myappspk;
 
+import android.app.ActionBar;
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
+
+import com.example.myappspk.adapter.DocAdapter;
+import com.example.myappspk.pojo.Companies;
+import com.example.myappspk.pojo.Doc;
 
 import java.util.List;
 
@@ -15,7 +24,9 @@ import retrofit2.Response;
 public class MainActivity extends Activity {
 
     private EditText searchParameter;
-    private TextView responceText;
+    private LinearLayout linearLayout;
+    private Context contextI = this;
+    private ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +34,8 @@ public class MainActivity extends Activity {
         setContentView(R.layout.start_layout);
 
         searchParameter = (EditText) findViewById(R.id.editText);
-        responceText = (TextView) findViewById(R.id.textView);
+        linearLayout = (LinearLayout) findViewById(R.id.startLayout);
+        listView = (ListView) findViewById(R.id.list_view);
     }
 
     public void search(View view)
@@ -39,15 +51,17 @@ public class MainActivity extends Activity {
 
 
                         Companies company = response.body();
-                        
-                        responceText.append(company.getDocs() + "\n");
-                        responceText.append(company.getTotal() + "\n");
+                        List<Doc> companyList = company.getDocs();
+
+                        DocAdapter docAdapter = new DocAdapter(contextI, companyList);
+                        listView.setAdapter(docAdapter);
 
                     }
 
                     @Override
                     public void onFailure(Call<Companies> call, Throwable t) {
-                        responceText.append("Произошла ошибка при получении запроса!");
+                        TextView errorText = new TextView(contextI);
+                        errorText.setText("Произошла ошибка при получении запроса!");
                         t.printStackTrace();
                     }
                 });

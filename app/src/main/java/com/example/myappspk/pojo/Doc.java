@@ -1,5 +1,5 @@
 
-package com.example.myappspk;
+package com.example.myappspk.pojo;
 
 import java.util.List;
 import com.google.gson.annotations.Expose;

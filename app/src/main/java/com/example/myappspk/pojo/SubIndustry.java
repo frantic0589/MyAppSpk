@@ -1,10 +1,10 @@
 
-package com.example.myappspk;
+package com.example.myappspk.pojo;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Industry {
+public class SubIndustry {
 
     @SerializedName("code")
     @Expose
