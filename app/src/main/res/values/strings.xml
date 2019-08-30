@@ -2,4 +2,8 @@
     <string name="app_name">MyAppSpk</string>
     <string name="search_box_text"></string>
     <string name="button_search">Найти</string>
+    <string name="hint_search">Поиск по названию компании, ИНН, ОГРН или ФИО</string>
+    <string name="text_header">ПРОВЕРКА КОНТРАГЕНТОВ</string>
+    <string name="header_persona">Работайте с теми, кому доверяете</string>
+    <string name="paragraph_persona">Снижаем потенциальные угрозы для бизнеса: блокировки расчетного счета, штрафы ФНС, неплатежи, невыполнение обязательств.</string>
 </resources>

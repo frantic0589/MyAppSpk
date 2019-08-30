@@ -1,14 +1,12 @@
 package com.example.myappspk;
 
-import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.example.myappspk.adapter.DocAdapter;
@@ -24,18 +22,19 @@ import retrofit2.Response;
 public class MainActivity extends Activity {
 
     private EditText searchParameter;
-    private LinearLayout linearLayout;
     private Context contextI = this;
     private ListView listView;
+    private ScrollView scrollView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.start_layout);
 
-        searchParameter = (EditText) findViewById(R.id.editText);
-        linearLayout = (LinearLayout) findViewById(R.id.startLayout);
-        listView = (ListView) findViewById(R.id.list_view);
+        searchParameter = findViewById(R.id.editTextSearch);
+        listView = findViewById(R.id.list_view);
+        scrollView = findViewById(R.id.scrollView);
     }
 
     public void search(View view)
@@ -54,8 +53,8 @@ public class MainActivity extends Activity {
                         List<Doc> companyList = company.getDocs();
 
                         DocAdapter docAdapter = new DocAdapter(contextI, companyList);
+                        scrollView.setVisibility(View.INVISIBLE);
                         listView.setAdapter(docAdapter);
-
                     }
 
                     @Override
@@ -65,5 +64,6 @@ public class MainActivity extends Activity {
                         t.printStackTrace();
                     }
                 });
+
     }
 }

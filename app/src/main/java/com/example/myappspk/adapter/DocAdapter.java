@@ -46,19 +46,23 @@ public class DocAdapter extends BaseAdapter {
         }
         Doc doc = (Doc) getItem(position);
 
-        TextView fullName = (TextView) view.findViewById(R.id.fullName);
-        TextView inn = (TextView) view.findViewById(R.id.inn);
-        TextView kpp = (TextView) view.findViewById(R.id.kpp);
-        TextView ogrn = (TextView) view.findViewById(R.id.ogrn);
-        TextView supervisor = (TextView) view.findViewById(R.id.supervisor);
-        TextView supervisorInn = (TextView) view.findViewById(R.id.innSupervisor);
+        TextView fullName = view.findViewById(R.id.fullName);
+        TextView inn = view.findViewById(R.id.inn);
+        TextView kpp = view.findViewById(R.id.kpp);
+        TextView ogrn = view.findViewById(R.id.ogrn);
+        TextView supervisor =  view.findViewById(R.id.supervisor);
+        TextView supervisorInn = view.findViewById(R.id.innSupervisor);
+        TextView industry = view.findViewById(R.id.industry);
 
         fullName.setText(doc.getFullName());
         inn.setText("ИНН: " + doc.getInn());
-        kpp.setText("КПП: " + doc.getKpp());
+        if (!doc.getKpp().isEmpty()){
+            kpp.setText("КПП: " + doc.getKpp());
+        }
         ogrn.setText("ОГРН: " + doc.getOgrn());
         supervisor.setText("Руководитель: " + doc.getChiefs().get(0).getName());
         supervisorInn.setText("ИНН руководителя: " + doc.getChiefs().get(0).getInn());
+        industry.setText(doc.getIndustry().getName());
 
         return view;
     }
