@@ -6,4 +6,5 @@
     <string name="text_header">ПРОВЕРКА КОНТРАГЕНТОВ</string>
     <string name="header_persona">Работайте с теми, кому доверяете</string>
     <string name="paragraph_persona">Снижаем потенциальные угрозы для бизнеса: блокировки расчетного счета, штрафы ФНС, неплатежи, невыполнение обязательств.</string>
+    <string name="photo_body_description">Фото тела приложения</string>
 </resources>

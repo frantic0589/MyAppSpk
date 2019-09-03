@@ -60,8 +60,8 @@ public class DocAdapter extends BaseAdapter {
             kpp.setText("КПП: " + doc.getKpp());
         }
         ogrn.setText("ОГРН: " + doc.getOgrn());
-        supervisor.setText("Руководитель: " + doc.getChiefs().get(0).getName());
-        supervisorInn.setText("ИНН руководителя: " + doc.getChiefs().get(0).getInn());
+        supervisor.setText(doc.getChiefs().get(0).getName());
+        supervisorInn.setText("ИНН: " + doc.getChiefs().get(0).getInn().trim());
         industry.setText(doc.getIndustry().getName());
 
         return view;
