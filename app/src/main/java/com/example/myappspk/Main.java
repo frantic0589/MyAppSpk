@@ -8,8 +8,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ViewFlipper;
 
 import com.example.myappspk.adapter.DocAdapter;
 import com.example.myappspk.pojo.Companies;
@@ -25,7 +25,7 @@ public class Main extends AppCompatActivity {
 
     private EditText editTextInput;
     private ListView listViewCompany;
-    private LinearLayout layoutBody;
+    private ViewFlipper viewFlipper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +38,7 @@ public class Main extends AppCompatActivity {
 
         editTextInput = findViewById(R.id.editTextSearch);
         listViewCompany = findViewById(R.id.lisrViewCompany);
-        layoutBody = findViewById(R.id.layoutBody);
+        viewFlipper = findViewById(R.id.viewFlipper);
 
     }
 
@@ -58,7 +58,7 @@ public class Main extends AppCompatActivity {
                         if (company.getTotal() != 0){
                             List<Doc> companyList = company.getDocs();
                             DocAdapter docAdapter = new DocAdapter(getApplicationContext(), companyList);
-                            layoutBody.setVisibility(View.INVISIBLE);
+                            viewFlipper.setVisibility(View.GONE);
                             listViewCompany.setVisibility(View.VISIBLE);
                             listViewCompany.setAdapter(docAdapter);
                         } else {
