@@ -55,16 +55,20 @@ public class Main extends AppCompatActivity {
 
 
                         Companies company = response.body();
-                        if (company.getTotal() != 0){
-                            List<Doc> companyList = company.getDocs();
-                            DocAdapter docAdapter = new DocAdapter(getApplicationContext(), companyList);
-                            viewFlipper.setVisibility(View.GONE);
-                            listViewCompany.setVisibility(View.VISIBLE);
-                            listViewCompany.setAdapter(docAdapter);
-                        } else {
+                        try {
+                            if (company.getTotal() != 0){
+                                List<Doc> companyList = company.getDocs();
+                                DocAdapter docAdapter = new DocAdapter(getApplicationContext(), companyList);
+                                viewFlipper.setVisibility(View.GONE);
+                                listViewCompany.setVisibility(View.VISIBLE);
+                                listViewCompany.setAdapter(docAdapter);
+                            } else {
 
-                            Toast.makeText(Main.this, "Компаний не найдено, попробуйте еще раз!", Toast.LENGTH_LONG).show();
+                                Toast.makeText(Main.this, "Компаний не найдено, попробуйте еще раз!", Toast.LENGTH_LONG).show();
 
+                            }
+                        } catch (Exception e) {
+                            e.printStackTrace();
                         }
 
                     }

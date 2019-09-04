@@ -54,15 +54,17 @@ public class DocAdapter extends BaseAdapter {
         TextView supervisorInn = view.findViewById(R.id.innSupervisor);
         TextView industry = view.findViewById(R.id.industry);
 
-        fullName.setText(doc.getFullName());
+        fullName.setText(doc.getShortName());
         inn.setText("ИНН: " + doc.getInn());
-        if (!doc.getKpp().isEmpty()){
+        if (doc.getKpp() != null){
             kpp.setText("КПП: " + doc.getKpp());
         }
         ogrn.setText("ОГРН: " + doc.getOgrn());
-        supervisor.setText(doc.getChiefs().get(0).getName());
-        supervisorInn.setText("ИНН: " + doc.getChiefs().get(0).getInn().trim());
-        industry.setText(doc.getIndustry().getName());
+        if (doc.getChiefs() != null) {
+            supervisor.setText(doc.getChiefs().get(0).getName());
+            supervisorInn.setText("ИНН: " + doc.getChiefs().get(0).getInn().trim());
+        }
+        industry.setText(doc.getCoreActivity());
 
         return view;
     }
