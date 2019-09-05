@@ -1,4 +1,7 @@
-package com.example.myappspk;
+package com.example.myappspk.Controller;
+
+import com.example.myappspk.Interface.GetCompany;
+import com.example.myappspk.Interface.SearchCompany;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -7,7 +10,7 @@ public class NetworkService {
 
     private static NetworkService mInstance;
 
-    public static final String BASE_URL = "https://api-gw.esphere.ru";
+    public static final String BASE_URL = "https://api-gw.esphere.ru/inf-refbook-retriever/";
     private Retrofit mRetrofit;
 
     private NetworkService() {
@@ -24,9 +27,14 @@ public class NetworkService {
         return mInstance;
     }
 
-    public FinalMethods getSearchCompany()
+    public SearchCompany getSearchCompany()
     {
-        return mRetrofit.create(FinalMethods.class);
+        return mRetrofit.create(SearchCompany.class);
+    }
+
+    public GetCompany getCompany()
+    {
+        return mRetrofit.create(GetCompany.class);
     }
 
 }

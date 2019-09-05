@@ -1,4 +1,4 @@
-package com.example.myappspk.adapter;
+package com.example.myappspk.Adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -7,17 +7,17 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import com.example.myappspk.Model.Companies;
 import com.example.myappspk.R;
-import com.example.myappspk.pojo.Doc;
 
 import java.util.List;
 
 public class DocAdapter extends BaseAdapter {
 
-    private List<Doc> docs;
+    private List<Companies.Doc> docs;
     private LayoutInflater layoutInflater;
 
-    public DocAdapter(Context context, List<Doc> docs) {
+    public DocAdapter(Context context, List<Companies.Doc> docs) {
         this.docs = docs;
         this.layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
@@ -44,7 +44,7 @@ public class DocAdapter extends BaseAdapter {
         if(view == null){
             view = layoutInflater.inflate(R.layout.company_item_layout, parent, false);
         }
-        Doc doc = (Doc) getItem(position);
+        Companies.Doc doc = (Companies.Doc) getItem(position);
 
         TextView fullName = view.findViewById(R.id.fullName);
         TextView inn = view.findViewById(R.id.inn);

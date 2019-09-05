@@ -1,19 +1,21 @@
-package com.example.myappspk;
+package com.example.myappspk.Activity;
 
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
 
-import com.example.myappspk.adapter.DocAdapter;
-import com.example.myappspk.pojo.Companies;
-import com.example.myappspk.pojo.Doc;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.myappspk.Adapter.DocAdapter;
+import com.example.myappspk.Controller.NetworkService;
+import com.example.myappspk.Model.Companies;
+import com.example.myappspk.R;
 
 import java.util.List;
 
@@ -26,6 +28,7 @@ public class Main extends AppCompatActivity {
     private EditText editTextInput;
     private ListView listViewCompany;
     private ViewFlipper viewFlipper;
+    private List<Companies.Doc> companyList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +43,17 @@ public class Main extends AppCompatActivity {
         listViewCompany = findViewById(R.id.lisrViewCompany);
         viewFlipper = findViewById(R.id.viewFlipper);
 
+        listViewCompany.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intentCompany = new Intent(getApplicationContext(), CompanyActivity.class);
+                intentCompany.putExtra("inn", companyList.get(i).getInn());
+                startActivity(intentCompany);
+            }
+        });
+
     }
+
 
     public void search(View view)
     {
@@ -57,7 +70,7 @@ public class Main extends AppCompatActivity {
                         Companies company = response.body();
                         try {
                             if (company.getTotal() != 0){
-                                List<Doc> companyList = company.getDocs();
+                                companyList = company.getDocs();
                                 DocAdapter docAdapter = new DocAdapter(getApplicationContext(), companyList);
                                 viewFlipper.setVisibility(View.GONE);
                                 listViewCompany.setVisibility(View.VISIBLE);

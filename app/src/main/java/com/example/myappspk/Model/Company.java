@@ -1,39 +1,104 @@
-package com.example.myappspk.Class;
+package com.example.myappspk.Model;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 import java.util.ArrayList;
 
 public class Company {
-        private String email;
-        EmailГрнДата EmailГрнДатаObject;
-        private String id;
-        private String source;
-        private String update;
-        private float version;
-        private String датаВып;
-        private String датаОгрн;
-        ArrayList< Object > допВидДеятельности = new ArrayList < Object > ();
-        private String имяКраткое;
-        private String имяПолное;
-        private String инн;
-        private String огрн;
-        СвАдрес СвАдресObject;
-        ОснВидДеятельности ОснВидДеятельностиObject;
-        Отрасль ОтрасльObject;
-        Подотрасль ПодотрасльObject;
-        ArrayList < Object > свЗап = new ArrayList < Object > ();
-        ArrayList < Object > свЛицензия = new ArrayList < Object > ();
-        СвРегОрг СвРегОргObject;
-        СвРегПФ СвРегПФObject;
-        СвРегФСС СвРегФССObject;
-        ArrayList < Object > свУпрОрг = new ArrayList < Object > ();
-        СвДолжнФЛ СвДолжнФЛObject;
-        УчрФЛ УчрФЛObject;
-        УчрЮЛИн УчрЮЛИнObject;
-        СвУчетНО СвУчетНОObject;
-        СтатусГРНДата СтатусГРНДатаObject;
-        private String статусКод;
-        private String статусНаим;
-        private String тип;
+
+    @SerializedName("email")
+    @Expose
+    private String email;
+    @SerializedName("EmailГрнДатаObject")
+    @Expose
+    EmailГрнДата EmailГрнДатаObject;
+    @SerializedName("id")
+    @Expose
+    private String id;
+    @SerializedName("source")
+    @Expose
+    private String source;
+    @SerializedName("update")
+    @Expose
+    private String update;
+    @SerializedName("version")
+    @Expose
+    private float version;
+    @SerializedName("датаВып")
+    @Expose
+    private String датаВып;
+    @SerializedName("датаОгрн")
+    @Expose
+    private String датаОгрн;
+    @SerializedName("допВидДеятельности")
+    @Expose
+    ArrayList< Object > допВидДеятельности = new ArrayList < Object > ();
+    @SerializedName("имяКраткое")
+    @Expose
+    private String имяКраткое;
+    @SerializedName("имяПолное")
+    @Expose
+    private String имяПолное;
+    @SerializedName("инн")
+    @Expose
+    private String инн;
+    @SerializedName("огрн")
+    @Expose
+    private String огрн;
+    @SerializedName("СвАдресObject")
+    @Expose
+    СвАдрес СвАдресObject;
+    @SerializedName("ОснВидДеятельностиObject")
+    @Expose
+    ОснВидДеятельности ОснВидДеятельностиObject;
+    @SerializedName("ОтрасльObject")
+    @Expose
+    Отрасль ОтрасльObject;
+    @SerializedName("ПодотрасльObject")
+    @Expose
+    Подотрасль ПодотрасльObject;
+    @SerializedName("свЗап")
+    @Expose
+    ArrayList < Object > свЗап = new ArrayList < Object > ();
+    @SerializedName("свЛицензия")
+    @Expose
+    ArrayList < Object > свЛицензия = new ArrayList < Object > ();
+    @SerializedName("СвРегОргObject")
+    @Expose
+    СвРегОрг СвРегОргObject;
+    @SerializedName("СвРегПФObject")
+    @Expose
+    СвРегПФ СвРегПФObject;
+    @SerializedName("СвРегФССObject")
+    @Expose
+    СвРегФСС СвРегФССObject;
+    @SerializedName("свУпрОрг")
+    @Expose
+    ArrayList < Object > свУпрОрг = new ArrayList < Object > ();
+    @SerializedName("СвДолжнФЛObject")
+    @Expose
+    СвДолжнФЛ СвДолжнФЛObject;
+    @SerializedName("УчрФЛObject")
+    @Expose
+    УчрФЛ УчрФЛObject;
+    @SerializedName("УчрЮЛИнObject")
+    @Expose
+    УчрЮЛИн УчрЮЛИнObject;
+    @SerializedName("СвУчетНОObject")
+    @Expose
+    СвУчетНО СвУчетНОObject;
+    @SerializedName("СтатусГРНДатаObject")
+    @Expose
+    СтатусГРНДата СтатусГРНДатаObject;
+    @SerializedName("статусКод")
+    @Expose
+    private String статусКод;
+    @SerializedName("статусНаим")
+    @Expose
+    private String статусНаим;
+    @SerializedName("тип")
+    @Expose
+    private String тип;
 
 
         // Getter Methods
@@ -257,7 +322,11 @@ public class Company {
         }
     }
     class СтатусГРНДата {
+        @SerializedName("грн")
+        @Expose
         private String грн;
+        @SerializedName("дата")
+        @Expose
         private String дата;
 
 
@@ -282,9 +351,17 @@ public class Company {
         }
     }
     class СвУчетНО {
+        @SerializedName("ГрнДатаObject")
+        @Expose
         ГрнДата ГрнДатаObject;
+        @SerializedName("датаПостУч")
+        @Expose
         private String датаПостУч;
+        @SerializedName("кодНО")
+        @Expose
         private String кодНО;
+        @SerializedName("наимНО")
+        @Expose
         private String наимНО;
 
 
@@ -325,7 +402,11 @@ public class Company {
         }
     }
     class ГрнДата {
+        @SerializedName("грн")
+        @Expose
         private String грн;
+        @SerializedName("дата")
+        @Expose
         private String дата;
 
 
@@ -350,16 +431,38 @@ public class Company {
         }
     }
     class УчрЮЛИн {
+        @SerializedName("адрСтр")
+        @Expose
         private String адрСтр;
+        @SerializedName("датаРег")
+        @Expose
         private String датаРег;
+        @SerializedName("доляУстКап")
+        @Expose
         private String доляУстКап;
+        @SerializedName("инн")
+        @Expose
         private String инн;
+        @SerializedName("наимПолн")
+        @Expose
         private String наимПолн;
+        @SerializedName("наимРегОрг")
+        @Expose
         private String наимРегОрг;
+        @SerializedName("оксм")
+        @Expose
         private String оксм;
+        @SerializedName("регНомер")
+        @Expose
         private String регНомер;
+        @SerializedName("СвНедДанУчрObject")
+        @Expose
         СвНедДанУчр СвНедДанУчрObject;
+        @SerializedName("СвОбремObject")
+        @Expose
         СвОбрем СвОбремObject;
+        @SerializedName("ГрнДатаObject")
+        @Expose
         ГрнДата ГрнДатаObject;
 
 
@@ -457,10 +560,18 @@ public class Company {
     }
 
 class СвОбрем {
-        СвЗалогДержФЛ СвЗалогДержФЛObject;
-        СвЗалогДержЮЛ СвЗалогДержЮЛObject;
-        private String видОбрем;
-        private String срокОбременения;
+    @SerializedName("СвЗалогДержФЛObject")
+    @Expose
+    СвЗалогДержФЛ СвЗалогДержФЛObject;
+    @SerializedName("СвЗалогДержЮЛObject")
+    @Expose
+    СвЗалогДержЮЛ СвЗалогДержЮЛObject;
+    @SerializedName("видОбрем")
+    @Expose
+    private String видОбрем;
+    @SerializedName("срокОбременения")
+    @Expose
+    private String срокОбременения;
 
 
         // Getter Methods
@@ -500,7 +611,11 @@ class СвОбрем {
         }
     }
     class СвЗалогДержЮЛ {
+        @SerializedName("НаимИННЮЛObject")
+        @Expose
         НаимИННЮЛ НаимИННЮЛObject;
+        @SerializedName("СвРегИнObject")
+        @Expose
         СвРегИн СвРегИнObject;
 
 
@@ -525,7 +640,11 @@ class СвОбрем {
         }
     }
     class СвРегИн {
+        @SerializedName("адрСтр")
+        @Expose
         private String адрСтр;
+        @SerializedName("наимСтран")
+        @Expose
         private String наимСтран;
 
 
@@ -550,8 +669,14 @@ class СвОбрем {
         }
     }
     class НаимИННЮЛ {
+        @SerializedName("инн")
+        @Expose
         private String инн;
+        @SerializedName("наимЮЛПолн")
+        @Expose
         private String наимЮЛПолн;
+        @SerializedName("огрн")
+        @Expose
         private String огрн;
 
 
@@ -584,6 +709,8 @@ class СвОбрем {
         }
     }
     class СвЗалогДержФЛ {
+        @SerializedName("СвФЛObject")
+        @Expose
         СвФЛ СвФЛObject;
 
 
@@ -600,9 +727,17 @@ class СвОбрем {
         }
     }
     class СвФЛ {
+        @SerializedName("имя")
+        @Expose
         private String имя;
+        @SerializedName("отчество")
+        @Expose
         private String отчество;
+        @SerializedName("фамилия")
+        @Expose
         private String фамилия;
+        @SerializedName("иннФЛ")
+        @Expose
         private String иннФЛ;
 
 
@@ -643,9 +778,17 @@ class СвОбрем {
         }
     }
     class СвНедДанУчр {
+        @SerializedName("ГрнДатаObject")
+        @Expose
         ГрнДата ГрнДатаObject;
+        @SerializedName("РешСудObject")
+        @Expose
         РешСуд РешСудObject;
+        @SerializedName("признНед")
+        @Expose
         private String признНед;
+        @SerializedName("текстНед")
+        @Expose
         private String текстНед;
 
 
@@ -686,9 +829,16 @@ class СвОбрем {
         }
     }
     class РешСуд {
+        @SerializedName("дата")
+        @Expose
         private String дата;
+        @SerializedName("наимСуда")
+        @Expose
         private String наимСуда;
+        @SerializedName("номер")
+        @Expose
         private String номер;
+
 
 
         // Getter Methods
@@ -721,10 +871,18 @@ class СвОбрем {
     }
 
 class УчрФЛ {
-        Фио ФиоObject;
-        private String инн;
-        СвНедДанУчр СвНедДанУчрObject;
-        ГрнДата ГрнДатаObject;
+    @SerializedName("ФиоObject")
+    @Expose
+    Фио ФиоObject;
+    @SerializedName("инн")
+    @Expose
+    private String инн;
+    @SerializedName("СвНедДанУчрObject")
+    @Expose
+    СвНедДанУчр СвНедДанУчрObject;
+    @SerializedName("ГрнДатаObject")
+    @Expose
+    ГрнДата ГрнДатаObject;
 
 
         // Getter Methods
@@ -765,9 +923,15 @@ class УчрФЛ {
     }
 
 class Фио {
-        private String firstName;
-        private String lastName;
-        private String patronymic;
+    @SerializedName("firstName")
+    @Expose
+    private String firstName;
+    @SerializedName("lastName")
+    @Expose
+    private String lastName;
+    @SerializedName("patronymic")
+    @Expose
+    private String patronymic;
 
 
         // Getter Methods
@@ -799,12 +963,26 @@ class Фио {
         }
     }
     class СвДолжнФЛ {
+        @SerializedName("ФиоObject")
+        @Expose
         Фио ФиоObject;
+        @SerializedName("инн")
+        @Expose
         private String инн;
+        @SerializedName("видДолжн")
+        @Expose
         private String видДолжн;
+        @SerializedName("наимВидДолжн")
+        @Expose
         private String наимВидДолжн;
+        @SerializedName("наимДолжн")
+        @Expose
         private String наимДолжн;
+        @SerializedName("СвНедДанДолжнФЛObject")
+        @Expose
         СвНедДанДолжнФЛ СвНедДанДолжнФЛObject;
+        @SerializedName("ГрнДатаObject")
+        @Expose
         ГрнДата ГрнДатаObject;
 
 
@@ -870,10 +1048,18 @@ class Фио {
     }
 
 class СвНедДанДолжнФЛ {
-        ГрнДата ГрнДатаObject;
-        ГрнДатаИспр ГрнДатаИспрObject;
-        private String признНед;
-        private String текстНед;
+    @SerializedName("ГрнДатаObject")
+    @Expose
+    ГрнДата ГрнДатаObject;
+    @SerializedName("ГрнДатаИспрObject")
+    @Expose
+    ГрнДатаИспр ГрнДатаИспрObject;
+    @SerializedName("признНед")
+    @Expose
+    private String признНед;
+    @SerializedName("текстНед")
+    @Expose
+    private String текстНед;
 
 
         // Getter Methods
@@ -913,7 +1099,11 @@ class СвНедДанДолжнФЛ {
         }
     }
     class ГрнДатаИспр {
+        @SerializedName("грн")
+        @Expose
         private String грн;
+        @SerializedName("дата")
+        @Expose
         private String дата;
 
 
@@ -939,11 +1129,21 @@ class СвНедДанДолжнФЛ {
     }
 
 class СвРегФСС {
-        ГрнДата ГрнДатаObject;
-        private String датаРег;
-        private String кодФСС;
-        private String наимФСС;
-        private String регНомФСС;
+    @SerializedName("ГрнДатаObject")
+    @Expose
+    ГрнДата ГрнДатаObject;
+    @SerializedName("датаРег")
+    @Expose
+    private String датаРег;
+    @SerializedName("кодФСС")
+    @Expose
+    private String кодФСС;
+    @SerializedName("наимФСС")
+    @Expose
+    private String наимФСС;
+    @SerializedName("регНомФСС")
+    @Expose
+    private String регНомФСС;
 
 
         // Getter Methods
@@ -992,11 +1192,21 @@ class СвРегФСС {
     }
 
 class СвРегПФ {
-        ГрнДата ГрнДатаObject;
-        private String датаРег;
-        private String кодПФ;
-        private String наимПФ;
-        private String регНомПФ;
+    @SerializedName("ГрнДатаObject")
+    @Expose
+    ГрнДата ГрнДатаObject;
+    @SerializedName("датаРег")
+    @Expose
+    private String датаРег;
+    @SerializedName("кодПФ")
+    @Expose
+    private String кодПФ;
+    @SerializedName("наимПФ")
+    @Expose
+    private String наимПФ;
+    @SerializedName("регНомПФ")
+    @Expose
+    private String регНомПФ;
 
 
         // Getter Methods
@@ -1045,10 +1255,18 @@ class СвРегПФ {
     }
 
 class СвРегОрг {
-        private String адрРО;
-        ГрнДата ГрнДатаObject;
-        private String кодНО;
-        private String наимНО;
+    @SerializedName("адрРО")
+    @Expose
+    private String адрРО;
+    @SerializedName("ГрнДатаObject")
+    @Expose
+    ГрнДата ГрнДатаObject;
+    @SerializedName("кодНО")
+    @Expose
+    private String кодНО;
+    @SerializedName("наимНО")
+    @Expose
+    private String наимНО;
 
 
         // Getter Methods
@@ -1089,8 +1307,12 @@ class СвРегОрг {
     }
 
 class Подотрасль {
-        private String код;
-        private String наим;
+    @SerializedName("код")
+    @Expose
+    private String код;
+    @SerializedName("наим")
+    @Expose
+    private String наим;
 
 
         // Getter Methods
@@ -1114,7 +1336,11 @@ class Подотрасль {
         }
     }
     class Отрасль {
+        @SerializedName("код")
+        @Expose
         private String код;
+        @SerializedName("наим")
+        @Expose
         private String наим;
 
 
@@ -1139,9 +1365,17 @@ class Подотрасль {
         }
     }
     class ОснВидДеятельности {
+        @SerializedName("версия")
+        @Expose
         private String версия;
+        @SerializedName("ГрнObject")
+        @Expose
         Грн ГрнObject;
+        @SerializedName("код")
+        @Expose
         private String код;
+        @SerializedName("наим")
+        @Expose
         private String наим;
 
 
@@ -1182,7 +1416,11 @@ class Подотрасль {
         }
     }
     class Грн {
+        @SerializedName("грн")
+        @Expose
         private String грн;
+        @SerializedName("дата")
+        @Expose
         private String дата;
 
 
@@ -1207,7 +1445,11 @@ class Подотрасль {
         }
     }
     class СвАдрес {
+        @SerializedName("АдресРФObject")
+        @Expose
         АдресРФ АдресРФObject;
+        @SerializedName("СвНедАдресЮЛObject")
+        @Expose
         СвНедАдресЮЛ СвНедАдресЮЛObject;
 
 
@@ -1232,9 +1474,17 @@ class Подотрасль {
         }
     }
     class СвНедАдресЮЛ {
+        @SerializedName("ГрнДатаObject")
+        @Expose
         ГрнДата ГрнДатаObject;
+        @SerializedName("ГрнДатаИспрObject")
+        @Expose
         ГрнДатаИспр ГрнДатаИспрObject;
+        @SerializedName("признНед")
+        @Expose
         private String признНед;
+        @SerializedName("текстНед")
+        @Expose
         private String текстНед;
 
 
@@ -1276,18 +1526,42 @@ class Подотрасль {
     }
 
 class АдресРФ {
-        Город ГородObject;
-        ГрнДата ГрнДатаObject;
-        private String дом;
-        private String индекс;
-        private String кварт;
-        private String кодАдрКладр;
-        private String кодРегион;
-        private String корпус;
-        НаселПункт НаселПунктObject;
-        Район РайонObject;
-        Регион РегионObject;
-        Улица УлицаObject;
+    @SerializedName("ГородObject")
+    @Expose
+    Город ГородObject;
+    @SerializedName("ГрнДатаObject")
+    @Expose
+    ГрнДата ГрнДатаObject;
+    @SerializedName("дом")
+    @Expose
+    private String дом;
+    @SerializedName("индекс")
+    @Expose
+    private String индекс;
+    @SerializedName("кварт")
+    @Expose
+    private String кварт;
+    @SerializedName("кодАдрКладр")
+    @Expose
+    private String кодАдрКладр;
+    @SerializedName("кодРегион")
+    @Expose
+    private String кодРегион;
+    @SerializedName("корпус")
+    @Expose
+    private String корпус;
+    @SerializedName("НаселПунктObject")
+    @Expose
+    НаселПункт НаселПунктObject;
+    @SerializedName("РайонObject")
+    @Expose
+    Район РайонObject;
+    @SerializedName("РегионObject")
+    @Expose
+    Регион РегионObject;
+    @SerializedName("УлицаObject")
+    @Expose
+    Улица УлицаObject;
 
 
         // Getter Methods
@@ -1391,7 +1665,11 @@ class АдресРФ {
         }
     }
     class Улица {
+        @SerializedName("наименование")
+        @Expose
         private String наименование;
+        @SerializedName("тип")
+        @Expose
         private String тип;
 
 
@@ -1416,7 +1694,11 @@ class АдресРФ {
         }
     }
     class Регион {
+        @SerializedName("наименование")
+        @Expose
         private String наименование;
+        @SerializedName("тип")
+        @Expose
         private String тип;
 
 
@@ -1441,7 +1723,11 @@ class АдресРФ {
         }
     }
     class Район {
+        @SerializedName("наименование")
+        @Expose
         private String наименование;
+        @SerializedName("тип")
+        @Expose
         private String тип;
 
 
@@ -1466,7 +1752,11 @@ class АдресРФ {
         }
     }
     class НаселПункт {
+        @SerializedName("наименование")
+        @Expose
         private String наименование;
+        @SerializedName("тип")
+        @Expose
         private String тип;
 
 
@@ -1492,8 +1782,12 @@ class АдресРФ {
     }
 
 class Город {
-        private String наименование;
-        private String тип;
+    @SerializedName("наименование")
+    @Expose
+    private String наименование;
+    @SerializedName("тип")
+    @Expose
+    private String тип;
 
 
         // Getter Methods
@@ -1517,7 +1811,11 @@ class Город {
         }
     }
     class EmailГрнДата {
+        @SerializedName("грн")
+        @Expose
         private String грн;
+        @SerializedName("дата")
+        @Expose
         private String дата;
 
 
