@@ -7,6 +7,6 @@
     <color name="white">#FFF</color>
     <color name="light_grey">#BEFAFAFA</color>
     <color name="dark_grey">#5C637D</color>
-    <color name="black">#000</color>
+    <color name="black">#000000</color>
     <color name="text_grey">#949494</color>
 </resources>
