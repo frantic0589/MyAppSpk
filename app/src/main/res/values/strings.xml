@@ -7,4 +7,11 @@
     <string name="header_persona">Работайте с теми, кому доверяете</string>
     <string name="paragraph_persona">Снижаем потенциальные угрозы для бизнеса: блокировки расчетного счета, штрафы ФНС, неплатежи, невыполнение обязательств.</string>
     <string name="photo_body_description">Фото тела приложения</string>
+    <string name="header_companyName">Название</string>
+    <string name="header_formed">Образовано</string>
+    <string name="header_address">Адрес</string>
+    <string name="header_num_of_employees">Численность сотрудников</string>
+    <string name="header_nalog">Специальный режим налогооблажения</string>
+    <string name="header_kgn">Участие в КГН</string>
+    <string name="header_supervisor">Руководитель</string>
 </resources>
