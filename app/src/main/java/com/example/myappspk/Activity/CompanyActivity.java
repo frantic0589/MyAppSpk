@@ -2,7 +2,9 @@ package com.example.myappspk.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -31,7 +33,7 @@ public class CompanyActivity extends AppCompatActivity {
     private TextView textViewInnSupervisor;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_company);
         Intent main = getIntent();
@@ -67,8 +69,14 @@ public class CompanyActivity extends AppCompatActivity {
                         textViewActing.setText(company.getСтатусНаим());
                         textViewtCompanyName.setText(company.getИмяПолное());
                         textViewDateFormed.setText(company.getДатаОгрн());
-                        textViewAddress.setText(company.getСвАдрес().getАдресРФ().getИндекс() +", "+ company.getСвАдрес().getАдресРФ().getРегион().getТип() +" "+company.getСвАдрес().getАдресРФ().getРегион().getТип()
-                                +", "+company.getСвАдрес().getАдресРФ().getУлица().getТип()+" "+company.getСвАдрес().getАдресРФ().getУлица().getТип()+", "+company.getСвАдрес().getАдресРФ().getДом() +", "+company.getСвАдрес().getАдресРФ().getКварт());
+                        textViewAddress.setText(company.getСвАдрес().getАдресРФ().getИндекс() +", "+ company.getСвАдрес().getАдресРФ().getРегион().getТип()
+                                +" "+company.getСвАдрес().getАдресРФ().getРегион().getНаименование()
+                                +", "+company.getСвАдрес().getАдресРФ().getГород().getТип()
+                                +" "+company.getСвАдрес().getАдресРФ().getГород().getНаименование()
+                                +", "+company.getСвАдрес().getАдресРФ().getУлица().getТип()
+                                +" "+company.getСвАдрес().getАдресРФ().getУлица().getНаименование()
+                                +", "+company.getСвАдрес().getАдресРФ().getДом()
+                                +", "+company.getСвАдрес().getАдресРФ().getКварт());
                         textViewPosition.setText(company.getСвДолжнФЛ().get(0).getНаимДолжн());
                         textViewFio.setText(company.getСвДолжнФЛ().get(0).getФио().getLastName() +" "+ company.getСвДолжнФЛ().get(0).getФио().getFirstName() +" "+company.getСвДолжнФЛ().get(0).getФио().getPatronymic());
                         textViewInnSupervisor.setText(company.getСвДолжнФЛ().get(0).getИнн());
@@ -76,7 +84,7 @@ public class CompanyActivity extends AppCompatActivity {
 
                     @Override
                     public void onFailure(Call<Company> call, Throwable t) {
-
+                        Toast toast = Toast.makeText(getApplicationContext(), t.getMessage(), Toast.LENGTH_LONG);
                     }
                 });
     }

@@ -2,7 +2,6 @@ package com.example.myappspk.Model;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-
 import java.util.ArrayList;
 
 public class Company {
@@ -42,27 +41,27 @@ public class Company {
     @SerializedName("имяКраткое")
     @Expose
     private String имяКраткое;
-    @SerializedName("СвУчетНОObject")
+    @SerializedName("свУчетНО")
     @Expose
     СвУчетНО СвУчетНОObject;
-    @SerializedName("СвРегОргObject")
+    @SerializedName("свРегОрг")
     @Expose
     СвРегОрг СвРегОргObject;
-    @SerializedName("СвРегПФObject")
+    @SerializedName("свРегПФ")
     @Expose
     СвРегПФ СвРегПФObject;
-    @SerializedName("СвРегФССObject")
+    @SerializedName("свРегФСС")
     @Expose
     СвРегФСС СвРегФССObject;
-    @SerializedName("ОснВидДеятельностиObject")
+    @SerializedName("оснВидДеятельности")
     @Expose
     ОснВидДеятельности ОснВидДеятельностиObject;
     @SerializedName("допВидДеятельности")
     @Expose
-    ArrayList < Object > допВидДеятельности = new ArrayList < Object > ();
+    ArrayList<Object> допВидДеятельности = new ArrayList<Object>();
     @SerializedName("свЗап")
     @Expose
-    ArrayList < Object > свЗап = new ArrayList < Object > ();
+    ArrayList<Object> свЗап = new ArrayList<Object>();
     @SerializedName("кпп")
     @Expose
     private String кпп;
@@ -72,30 +71,24 @@ public class Company {
     @SerializedName("кодОПФ")
     @Expose
     private String кодОПФ;
-    @SerializedName("НаимГрнДатаObject")
+    @SerializedName("наимГрнДата")
     @Expose
     НаимГрнДата НаимГрнДатаObject;
     @SerializedName("полнНаимОПФ")
     @Expose
     private String полнНаимОПФ;
-    @SerializedName("cвАдрес")
+    @SerializedName("свАдрес")
     @Expose
-    свАдрес свАдрес;
-    @SerializedName("СвОбрЮЛObject")
+    СвАдрес СвАдресObject;
+    @SerializedName("свОбрЮЛ")
     @Expose
     СвОбрЮЛ СвОбрЮЛObject;
-    @SerializedName("СвУстКапObject")
+    @SerializedName("свУстКап")
     @Expose
     СвУстКап СвУстКапObject;
-    @SerializedName("СвДрежРеестрАОObject")
-    @Expose
-    СвДрежРеестрАО СвДрежРеестрАОObject;
-    @SerializedName("учрЮЛРос")
-    @Expose
-    ArrayList < Object > учрЮЛРос = new ArrayList < Object > ();
     @SerializedName("учрФЛ")
     @Expose
-    ArrayList < Object > учрФЛ = new ArrayList < Object > ();
+    ArrayList<Object> учрФЛ = new ArrayList<Object>();
 
     public ArrayList<свДолжнФЛ> getСвДолжнФЛ() {
         return свДолжнФЛ;
@@ -107,7 +100,7 @@ public class Company {
 
     @SerializedName("свДолжнФЛ")
     @Expose
-    ArrayList < свДолжнФЛ > свДолжнФЛ = new ArrayList < свДолжнФЛ > ();
+    ArrayList<свДолжнФЛ> свДолжнФЛ = new ArrayList<свДолжнФЛ>();
 
 
     // Getter Methods
@@ -200,8 +193,8 @@ public class Company {
         return полнНаимОПФ;
     }
 
-    public свАдрес getСвАдрес() {
-        return свАдрес;
+    public СвАдрес getСвАдрес() {
+        return СвАдресObject;
     }
 
     public СвОбрЮЛ getСвОбрЮЛ() {
@@ -212,143 +205,128 @@ public class Company {
         return СвУстКапObject;
     }
 
-    public СвДрежРеестрАО getСвДрежРеестрАО() {
-        return СвДрежРеестрАОObject;
-    }
-
     // Setter Methods
 
-    public void setId(String id) {
+    public void setId( String id ) {
         this.id = id;
     }
 
-    public void setSource(String source) {
+    public void setSource( String source ) {
         this.source = source;
     }
 
-    public void setUpdate(String update) {
+    public void setUpdate( String update ) {
         this.update = update;
     }
 
-    public void setТип(String тип) {
+    public void setТип( String тип ) {
         this.тип = тип;
     }
 
-    public void setДатаВып(String датаВып) {
+    public void setДатаВып( String датаВып ) {
         this.датаВып = датаВып;
     }
 
-    public void setДатаОгрн(String датаОгрн) {
+    public void setДатаОгрн( String датаОгрн ) {
         this.датаОгрн = датаОгрн;
     }
 
-    public void setОгрн(String огрн) {
+    public void setОгрн( String огрн ) {
         this.огрн = огрн;
     }
 
-    public void setИнн(String инн) {
+    public void setИнн( String инн ) {
         this.инн = инн;
     }
 
-    public void setСтатусНаим(String статусНаим) {
+    public void setСтатусНаим( String статусНаим ) {
         this.статусНаим = статусНаим;
     }
 
-    public void setСтатусКод(String статусКод) {
+    public void setСтатусКод( String статусКод ) {
         this.статусКод = статусКод;
     }
 
-    public void setИмяПолное(String имяПолное) {
+    public void setИмяПолное( String имяПолное ) {
         this.имяПолное = имяПолное;
     }
 
-    public void setИмяКраткое(String имяКраткое) {
+    public void setИмяКраткое( String имяКраткое ) {
         this.имяКраткое = имяКраткое;
     }
 
-    public void setСвУчетНО(СвУчетНО свУчетНОObject) {
+    public void setСвУчетНО( СвУчетНО свУчетНОObject ) {
         this.СвУчетНОObject = свУчетНОObject;
     }
 
-    public void setСвРегОрг(СвРегОрг свРегОргObject) {
+    public void setСвРегОрг( СвРегОрг свРегОргObject ) {
         this.СвРегОргObject = свРегОргObject;
     }
 
-    public void setСвРегПФ(СвРегПФ свРегПФObject) {
+    public void setСвРегПФ( СвРегПФ свРегПФObject ) {
         this.СвРегПФObject = свРегПФObject;
     }
 
-    public void setСвРегФСС(СвРегФСС свРегФССObject) {
+    public void setСвРегФСС( СвРегФСС свРегФССObject ) {
         this.СвРегФССObject = свРегФССObject;
     }
 
-    public void setОснВидДеятельности(ОснВидДеятельности оснВидДеятельностиObject) {
+    public void setОснВидДеятельности( ОснВидДеятельности оснВидДеятельностиObject ) {
         this.ОснВидДеятельностиObject = оснВидДеятельностиObject;
     }
 
-    public void setКпп(String кпп) {
+    public void setКпп( String кпп ) {
         this.кпп = кпп;
     }
 
-    public void setСпрОПФ(String спрОПФ) {
+    public void setСпрОПФ( String спрОПФ ) {
         this.спрОПФ = спрОПФ;
     }
 
-    public void setКодОПФ(String кодОПФ) {
+    public void setКодОПФ( String кодОПФ ) {
         this.кодОПФ = кодОПФ;
     }
 
-    public void setНаимГрнДата(НаимГрнДата наимГрнДатаObject) {
+    public void setНаимГрнДата( НаимГрнДата наимГрнДатаObject ) {
         this.НаимГрнДатаObject = наимГрнДатаObject;
     }
 
-    public void setПолнНаимОПФ(String полнНаимОПФ) {
+    public void setПолнНаимОПФ( String полнНаимОПФ ) {
         this.полнНаимОПФ = полнНаимОПФ;
     }
 
-    public void setСвАдрес(свАдрес свАдрес) {
-        this.свАдрес = свАдрес;
+    public void setСвАдрес( СвАдрес свАдресObject ) {
+        this.СвАдресObject = свАдресObject;
     }
 
-    public void setСвОбрЮЛ(СвОбрЮЛ свОбрЮЛObject) {
+    public void setСвОбрЮЛ( СвОбрЮЛ свОбрЮЛObject ) {
         this.СвОбрЮЛObject = свОбрЮЛObject;
     }
 
-    public void setСвУстКап(СвУстКап свУстКапObject) {
+    public void setСвУстКап( СвУстКап свУстКапObject ) {
         this.СвУстКапObject = свУстКапObject;
     }
 
-    public void setСвДрежРеестрАО(СвДрежРеестрАО свДрежРеестрАОObject) {
-        this.СвДрежРеестрАОObject = свДрежРеестрАОObject;
-    }
-
-    public static class СвДрежРеестрАО {
-        @SerializedName("огрн")
+    public static class СвУстКап {
+        @SerializedName("наимВидКап")
         @Expose
-        private String огрн;
-        @SerializedName("инн")
+        private String наимВидКап;
+        @SerializedName("сумКап")
         @Expose
-        private String инн;
-        @SerializedName("наимЮЛПолн")
-        @Expose
-        private String наимЮЛПолн;
-        @SerializedName("ГрнДатаObject")
+        private float сумКап;
+        @SerializedName("грнДата")
         @Expose
         ГрнДата ГрнДатаObject;
 
 
         // Getter Methods
 
-        public String getОгрн() {
-            return огрн;
+        public String getНаимВидКап() {
+            return наимВидКап;
         }
 
-        public String getИнн() {
-            return инн;
-        }
-
-        public String getНаимЮЛПолн() {
-            return наимЮЛПолн;
+        public float getСумКап() {
+            return сумКап;
         }
 
         public ГрнДата getГрнДата() {
@@ -357,19 +335,15 @@ public class Company {
 
         // Setter Methods
 
-        public void setОгрн(String огрн) {
-            this.огрн = огрн;
+        public void setНаимВидКап( String наимВидКап ) {
+            this.наимВидКап = наимВидКап;
         }
 
-        public void setИнн(String инн) {
-            this.инн = инн;
+        public void setСумКап( float сумКап ) {
+            this.сумКап = сумКап;
         }
 
-        public void setНаимЮЛПолн(String наимЮЛПолн) {
-            this.наимЮЛПолн = наимЮЛПолн;
-        }
-
-        public void setГрнДата(ГрнДата грнДатаObject) {
+        public void setГрнДата( ГрнДата грнДатаObject ) {
             this.ГрнДатаObject = грнДатаObject;
         }
     }
@@ -394,55 +368,14 @@ public class Company {
 
         // Setter Methods
 
-        public void setГрн(String грн) {
+        public void setГрн( String грн ) {
             this.грн = грн;
         }
 
-        public void setДата(String дата) {
+        public void setДата( String дата ) {
             this.дата = дата;
         }
     }
-    public static class СвУстКап {
-        @SerializedName("наимВидКап")
-        @Expose
-        private String наимВидКап;
-        @SerializedName("сумКап")
-        @Expose
-        private float сумКап;
-        @SerializedName("ГрнДатаObject")
-        @Expose
-        ГрнДата ГрнДатаObject;
-
-
-        // Getter Methods
-
-        public String getНаимВидКап() {
-            return наимВидКап;
-        }
-
-        public float getСумКап() {
-            return сумКап;
-        }
-
-        public ГрнДата getГрнДата() {
-            return ГрнДатаObject;
-        }
-
-        // Setter Methods
-
-        public void setНаимВидКап(String наимВидКап) {
-            this.наимВидКап = наимВидКап;
-        }
-
-        public void setСумКап(float сумКап) {
-            this.сумКап = сумКап;
-        }
-
-        public void setГрнДата(ГрнДата грнДатаObject) {
-            this.ГрнДатаObject = грнДатаObject;
-        }
-    }
-
     public static class СвОбрЮЛ {
         @SerializedName("кодСпОррЮЛ")
         @Expose
@@ -450,7 +383,7 @@ public class Company {
         @SerializedName("наимСпОбрЮЛ")
         @Expose
         private String наимСпОбрЮЛ;
-        @SerializedName("ГрнДатаObject")
+        @SerializedName("грнДата")
         @Expose
         ГрнДата ГрнДатаObject;
 
@@ -471,44 +404,47 @@ public class Company {
 
         // Setter Methods
 
-        public void setКодСпОррЮЛ(String кодСпОррЮЛ) {
+        public void setКодСпОррЮЛ( String кодСпОррЮЛ ) {
             this.кодСпОррЮЛ = кодСпОррЮЛ;
         }
 
-        public void setНаимСпОбрЮЛ(String наимСпОбрЮЛ) {
+        public void setНаимСпОбрЮЛ( String наимСпОбрЮЛ ) {
             this.наимСпОбрЮЛ = наимСпОбрЮЛ;
         }
 
-        public void setГрнДата(ГрнДата грнДатаObject) {
+        public void setГрнДата( ГрнДата грнДатаObject ) {
             this.ГрнДатаObject = грнДатаObject;
         }
     }
 
-    public static class свАдрес {
-        @SerializedName("aдресРФ")
+    public static class СвАдрес {
+        @SerializedName("адресРФ")
         @Expose
-        адресРФ адресРФ;
+        АдресРФ АдресРФObject;
 
 
         // Getter Methods
 
-        public адресРФ getАдресРФ() {
-            return адресРФ;
+        public АдресРФ getАдресРФ() {
+            return АдресРФObject;
         }
 
         // Setter Methods
 
-        public void setАдресРФ(адресРФ адресРФ) {
-            this.адресРФ = адресРФ;
+        public void setАдресРФ( АдресРФ адресРФObject ) {
+            this.АдресРФObject = адресРФObject;
         }
     }
-    public static class адресРФ {
+    public static class АдресРФ {
         @SerializedName("регион")
         @Expose
-        регион Регион;
+        Регион РегионObject;
+        @SerializedName("город")
+        @Expose
+        Город ГородObject;
         @SerializedName("улица")
         @Expose
-        улица Улица;
+        Улица УлицаObject;
         @SerializedName("индекс")
         @Expose
         private String индекс;
@@ -531,12 +467,16 @@ public class Company {
 
         // Getter Methods
 
-        public регион getРегион() {
-            return Регион;
+        public Регион getРегион() {
+            return РегионObject;
         }
 
-        public улица getУлица() {
-            return Улица;
+        public Город getГород() {
+            return ГородObject;
+        }
+
+        public Улица getУлица() {
+            return УлицаObject;
         }
 
         public String getИндекс() {
@@ -565,40 +505,44 @@ public class Company {
 
         // Setter Methods
 
-        public void setРегион(регион регионObject) {
-            this.Регион = регионObject;
+        public void setРегион( Регион регионObject ) {
+            this.РегионObject = регионObject;
         }
 
-        public void setУлица(улица улицаObject) {
-            this.Улица = улицаObject;
+        public void setГород( Город городObject ) {
+            this.ГородObject = городObject;
         }
 
-        public void setИндекс(String индекс) {
+        public void setУлица( Улица улицаObject ) {
+            this.УлицаObject = улицаObject;
+        }
+
+        public void setИндекс( String индекс ) {
             this.индекс = индекс;
         }
 
-        public void setКодРегион(String кодРегион) {
+        public void setКодРегион( String кодРегион ) {
             this.кодРегион = кодРегион;
         }
 
-        public void setКодАдрКладр(String кодАдрКладр) {
+        public void setКодАдрКладр( String кодАдрКладр ) {
             this.кодАдрКладр = кодАдрКладр;
         }
 
-        public void setДом(String дом) {
+        public void setДом( String дом ) {
             this.дом = дом;
         }
 
-        public void setКварт(String кварт) {
+        public void setКварт( String кварт ) {
             this.кварт = кварт;
         }
 
-        public void setГрнДата(ГрнДата грнДатаObject) {
+        public void setГрнДата( ГрнДата грнДатаObject ) {
             this.ГрнДатаObject = грнДатаObject;
         }
     }
 
-    public static class улица {
+    public static class Улица {
         @SerializedName("тип")
         @Expose
         private String тип;
@@ -619,15 +563,15 @@ public class Company {
 
         // Setter Methods
 
-        public void setТип(String тип) {
+        public void setТип( String тип ) {
             this.тип = тип;
         }
 
-        public void setНаименование(String наименование) {
+        public void setНаименование( String наименование ) {
             this.наименование = наименование;
         }
     }
-    public static class регион {
+    public static class Город {
         @SerializedName("тип")
         @Expose
         private String тип;
@@ -648,11 +592,40 @@ public class Company {
 
         // Setter Methods
 
-        public void setТип(String тип) {
+        public void setТип( String тип ) {
             this.тип = тип;
         }
 
-        public void setНаименование(String наименование) {
+        public void setНаименование( String наименование ) {
+            this.наименование = наименование;
+        }
+    }
+    public static class Регион {
+        @SerializedName("тип")
+        @Expose
+        private String тип;
+        @SerializedName("наименование")
+        @Expose
+        private String наименование;
+
+
+        // Getter Methods
+
+        public String getТип() {
+            return тип;
+        }
+
+        public String getНаименование() {
+            return наименование;
+        }
+
+        // Setter Methods
+
+        public void setТип( String тип ) {
+            this.тип = тип;
+        }
+
+        public void setНаименование( String наименование ) {
             this.наименование = наименование;
         }
     }
@@ -677,11 +650,11 @@ public class Company {
 
         // Setter Methods
 
-        public void setГрн(String грн) {
+        public void setГрн( String грн ) {
             this.грн = грн;
         }
 
-        public void setДата(String дата) {
+        public void setДата( String дата ) {
             this.дата = дата;
         }
     }
@@ -695,7 +668,7 @@ public class Company {
         @SerializedName("версия")
         @Expose
         private String версия;
-        @SerializedName("ГрнObject")
+        @SerializedName("грн")
         @Expose
         Грн ГрнObject;
 
@@ -720,19 +693,19 @@ public class Company {
 
         // Setter Methods
 
-        public void setКод(String код) {
+        public void setКод( String код ) {
             this.код = код;
         }
 
-        public void setНаим(String наим) {
+        public void setНаим( String наим ) {
             this.наим = наим;
         }
 
-        public void setВерсия(String версия) {
+        public void setВерсия( String версия ) {
             this.версия = версия;
         }
 
-        public void setГрн(Грн грнObject) {
+        public void setГрн( Грн грнObject ) {
             this.ГрнObject = грнObject;
         }
     }
@@ -757,11 +730,11 @@ public class Company {
 
         // Setter Methods
 
-        public void setГрн(String грн) {
+        public void setГрн( String грн ) {
             this.грн = грн;
         }
 
-        public void setДата(String дата) {
+        public void setДата( String дата ) {
             this.дата = дата;
         }
     }
@@ -778,7 +751,7 @@ public class Company {
         @SerializedName("датаРег")
         @Expose
         private String датаРег;
-        @SerializedName("ГрнДата")
+        @SerializedName("грнДата")
         @Expose
         ГрнДата ГрнДатаObject;
 
@@ -807,23 +780,23 @@ public class Company {
 
         // Setter Methods
 
-        public void setКодФСС(String кодФСС) {
+        public void setКодФСС( String кодФСС ) {
             this.кодФСС = кодФСС;
         }
 
-        public void setНаимФСС(String наимФСС) {
+        public void setНаимФСС( String наимФСС ) {
             this.наимФСС = наимФСС;
         }
 
-        public void setРегНомФСС(String регНомФСС) {
+        public void setРегНомФСС( String регНомФСС ) {
             this.регНомФСС = регНомФСС;
         }
 
-        public void setДатаРег(String датаРег) {
+        public void setДатаРег( String датаРег ) {
             this.датаРег = датаРег;
         }
 
-        public void setГрнДата(ГрнДата грнДатаObject) {
+        public void setГрнДата( ГрнДата грнДатаObject ) {
             this.ГрнДатаObject = грнДатаObject;
         }
     }
@@ -841,7 +814,7 @@ public class Company {
         @SerializedName("датаРег")
         @Expose
         private String датаРег;
-        @SerializedName("ГрнДатаObject")
+        @SerializedName("грнДата")
         @Expose
         ГрнДата ГрнДатаObject;
 
@@ -870,23 +843,23 @@ public class Company {
 
         // Setter Methods
 
-        public void setКодПФ(String кодПФ) {
+        public void setКодПФ( String кодПФ ) {
             this.кодПФ = кодПФ;
         }
 
-        public void setНаимПФ(String наимПФ) {
+        public void setНаимПФ( String наимПФ ) {
             this.наимПФ = наимПФ;
         }
 
-        public void setРегНомПФ(String регНомПФ) {
+        public void setРегНомПФ( String регНомПФ ) {
             this.регНомПФ = регНомПФ;
         }
 
-        public void setДатаРег(String датаРег) {
+        public void setДатаРег( String датаРег ) {
             this.датаРег = датаРег;
         }
 
-        public void setГрнДата(ГрнДата грнДатаObject) {
+        public void setГрнДата( ГрнДата грнДатаObject ) {
             this.ГрнДатаObject = грнДатаObject;
         }
     }
@@ -901,9 +874,9 @@ public class Company {
         @SerializedName("адрРО")
         @Expose
         private String адрРО;
-        @SerializedName("ГрнДата")
+        @SerializedName("грнДата")
         @Expose
-        ГрнДата ГрнДата;
+        ГрнДата ГрнДатаObject;
 
 
         // Getter Methods
@@ -921,25 +894,25 @@ public class Company {
         }
 
         public ГрнДата getГрнДата() {
-            return ГрнДата;
+            return ГрнДатаObject;
         }
 
         // Setter Methods
 
-        public void setКодНО(String кодНО) {
+        public void setКодНО( String кодНО ) {
             this.кодНО = кодНО;
         }
 
-        public void setНаимНО(String наимНО) {
+        public void setНаимНО( String наимНО ) {
             this.наимНО = наимНО;
         }
 
-        public void setАдрРО(String адрРО) {
+        public void setАдрРО( String адрРО ) {
             this.адрРО = адрРО;
         }
 
-        public void setГрнДата(ГрнДата грнДата) {
-            this.ГрнДата = грнДата;
+        public void setГрнДата( ГрнДата грнДатаObject ) {
+            this.ГрнДатаObject = грнДатаObject;
         }
     }
 
@@ -953,7 +926,7 @@ public class Company {
         @SerializedName("датаПостУч")
         @Expose
         private String датаПостУч;
-        @SerializedName("ГрнДатаObject")
+        @SerializedName("грнДата")
         @Expose
         ГрнДата ГрнДатаObject;
 
@@ -978,19 +951,19 @@ public class Company {
 
         // Setter Methods
 
-        public void setКодНО(String кодНО) {
+        public void setКодНО( String кодНО ) {
             this.кодНО = кодНО;
         }
 
-        public void setНаимНО(String наимНО) {
+        public void setНаимНО( String наимНО ) {
             this.наимНО = наимНО;
         }
 
-        public void setДатаПостУч(String датаПостУч) {
+        public void setДатаПостУч( String датаПостУч ) {
             this.датаПостУч = датаПостУч;
         }
 
-        public void setГрнДата(ГрнДата грнДатаObject) {
+        public void setГрнДата( ГрнДата грнДатаObject ) {
             this.ГрнДатаObject = грнДатаObject;
         }
     }
@@ -998,6 +971,21 @@ public class Company {
         @SerializedName("фио")
         @Expose
         private Фио фио;
+        @SerializedName("инн")
+        @Expose
+        private String инн;
+        @SerializedName("видДолжн")
+        @Expose
+        private String видДолжн;
+        @SerializedName("наимВидДолжн")
+        @Expose
+        private String наимВидДолжн;
+        @SerializedName("наимДолжн")
+        @Expose
+        private String наимДолжн;
+        @SerializedName("грнДата")
+        @Expose
+        private ГрнДата грнДата;
 
         public Фио getФио() {
             return фио;
@@ -1046,27 +1034,9 @@ public class Company {
         public void setГрнДата(ГрнДата грнДата) {
             this.грнДата = грнДата;
         }
-
-        @SerializedName("инн")
-        @Expose
-        private String инн;
-        @SerializedName("видДолжн")
-        @Expose
-        private String видДолжн;
-        @SerializedName("наимВидДолжн")
-        @Expose
-        private String наимВидДолжн;
-        @SerializedName("наимДолжн")
-        @Expose
-        private String наимДолжн;
-        @SerializedName("грнДата")
-        @Expose
-        private ГрнДата грнДата;
     }
 
     public static class Фио{
-
-
         @SerializedName("firstName")
         @Expose
         private String firstName;
