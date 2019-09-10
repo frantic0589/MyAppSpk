@@ -1,8 +1,11 @@
 package com.example.myappspk.Activity;
 
+import android.animation.ValueAnimator;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,6 +34,8 @@ public class CompanyActivity extends AppCompatActivity {
     private TextView textViewPosition;
     private TextView textViewFio;
     private TextView textViewInnSupervisor;
+    private LinearLayout linearLayout;
+    private LinearLayout linearLayoutHeader;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -51,6 +56,10 @@ public class CompanyActivity extends AppCompatActivity {
         textViewPosition = findViewById(R.id.textViewPosition);
         textViewFio = findViewById(R.id.textViewFio);
         textViewInnSupervisor = findViewById(R.id.textViewInnSupervisor);
+        linearLayout = findViewById(R.id.linearLayoutCompanyInfo);
+        linearLayoutHeader = findViewById(R.id.linearLayoutHeader);
+        linearLayout.setVisibility(View.GONE);
+
 
 
         NetworkService.getInstance()
@@ -69,14 +78,8 @@ public class CompanyActivity extends AppCompatActivity {
                         textViewActing.setText(company.getСтатусНаим());
                         textViewtCompanyName.setText(company.getИмяПолное());
                         textViewDateFormed.setText(company.getДатаОгрн());
-                        textViewAddress.setText(company.getСвАдрес().getАдресРФ().getИндекс() +", "+ company.getСвАдрес().getАдресРФ().getРегион().getТип()
-                                +" "+company.getСвАдрес().getАдресРФ().getРегион().getНаименование()
-                                +", "+company.getСвАдрес().getАдресРФ().getГород().getТип()
-                                +" "+company.getСвАдрес().getАдресРФ().getГород().getНаименование()
-                                +", "+company.getСвАдрес().getАдресРФ().getУлица().getТип()
-                                +" "+company.getСвАдрес().getАдресРФ().getУлица().getНаименование()
-                                +", "+company.getСвАдрес().getАдресРФ().getДом()
-                                +", "+company.getСвАдрес().getАдресРФ().getКварт());
+
+                        textViewAddress.setText(getAddrees(company.getСвАдрес()));
                         textViewPosition.setText(company.getСвДолжнФЛ().get(0).getНаимДолжн());
                         textViewFio.setText(company.getСвДолжнФЛ().get(0).getФио().getLastName() +" "+ company.getСвДолжнФЛ().get(0).getФио().getFirstName() +" "+company.getСвДолжнФЛ().get(0).getФио().getPatronymic());
                         textViewInnSupervisor.setText(company.getСвДолжнФЛ().get(0).getИнн());
@@ -87,5 +90,63 @@ public class CompanyActivity extends AppCompatActivity {
                         Toast toast = Toast.makeText(getApplicationContext(), t.getMessage(), Toast.LENGTH_LONG);
                     }
                 });
+        linearLayoutHeader.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (linearLayout.getVisibility() == View.GONE){
+                    expand();
+                }else{
+                    collapse();
+                }
+            }
+        });
+    }
+
+    private void expand(){
+        linearLayout.setVisibility(View.VISIBLE);
+
+        final int widthSpec = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED);
+        final int heightSpec = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED);
+
+        linearLayout.measure(widthSpec, heightSpec);
+
+        ValueAnimator animator = slideAnimator(0, linearLayout.getMeasuredHeight());
+        animator.start();
+    }
+    private void collapse(){
+        int finalHeight = linearLayout.getHeight();
+        ValueAnimator animator = slideAnimator(finalHeight, 0);
+        animator.start();
+    }
+
+    private ValueAnimator slideAnimator(int start, int end) {
+        ValueAnimator animator = ValueAnimator.ofInt(start, end);
+        animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator valueAnimator) {
+                int value = (Integer) valueAnimator.getAnimatedValue();
+                ViewGroup.LayoutParams layoutParams = linearLayout.getLayoutParams();
+                layoutParams.height = value;
+                linearLayout.setLayoutParams(layoutParams);
+            }
+        });
+    return animator;
+    }
+    private String getAddrees(Company.СвАдрес address){
+        StringBuilder builder = new StringBuilder();
+        if (address.getАдресРФ().getИндекс() != null) {
+            builder.append(address.getАдресРФ().getИндекс() + ", ");
+        } else if ((address.getАдресРФ().getРегион().getТип() != null) && (address.getАдресРФ().getРегион().getНаименование() != null)){
+            builder.append(address.getАдресРФ().getРегион().getТип() +" "+ address.getАдресРФ().getРегион().getНаименование() +", ");
+        }else if ((address.getАдресРФ().getГород().getТип() != null) && (address.getАдресРФ().getГород().getНаименование() != null)){
+            builder.append(address.getАдресРФ().getГород().getТип() +" "+ address.getАдресРФ().getГород().getНаименование()+ ", ");
+        }else if ((address.getАдресРФ().getУлица().getТип() != null) && (address.getАдресРФ().getУлица().getНаименование() != null)){
+            builder.append(address.getАдресРФ().getУлица().getТип()+ " " +address.getАдресРФ().getУлица().getНаименование()+ ", ");
+        }else if ((address.getАдресРФ().getДом() != null)){
+            builder.append(address.getАдресРФ().getДом() + ", ");
+        }else if ((address.getАдресРФ().getКварт() != null)){
+            builder.append(address.getАдресРФ().getКварт());
+        }
+        return builder.toString();
     }
 }
