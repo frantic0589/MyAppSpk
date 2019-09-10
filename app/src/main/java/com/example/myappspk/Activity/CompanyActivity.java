@@ -1,5 +1,6 @@
 package com.example.myappspk.Activity;
 
+import android.animation.Animator;
 import android.animation.ValueAnimator;
 import android.content.Intent;
 import android.os.Bundle;
@@ -116,6 +117,27 @@ public class CompanyActivity extends AppCompatActivity {
     private void collapse(){
         int finalHeight = linearLayout.getHeight();
         ValueAnimator animator = slideAnimator(finalHeight, 0);
+        animator.addListener(new Animator.AnimatorListener() {
+            @Override
+            public void onAnimationStart(Animator animator) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animator animator) {
+                linearLayout.setVisibility(View.GONE);
+            }
+
+            @Override
+            public void onAnimationCancel(Animator animator) {
+
+            }
+
+            @Override
+            public void onAnimationRepeat(Animator animator) {
+
+            }
+        });
         animator.start();
     }
 
@@ -136,15 +158,20 @@ public class CompanyActivity extends AppCompatActivity {
         StringBuilder builder = new StringBuilder();
         if (address.getАдресРФ().getИндекс() != null) {
             builder.append(address.getАдресРФ().getИндекс() + ", ");
-        } else if ((address.getАдресРФ().getРегион().getТип() != null) && (address.getАдресРФ().getРегион().getНаименование() != null)){
+        }
+        if (address.getАдресРФ().getРегион() != null){
             builder.append(address.getАдресРФ().getРегион().getТип() +" "+ address.getАдресРФ().getРегион().getНаименование() +", ");
-        }else if ((address.getАдресРФ().getГород().getТип() != null) && (address.getАдресРФ().getГород().getНаименование() != null)){
+        }
+        if (address.getАдресРФ().getГород() != null){
             builder.append(address.getАдресРФ().getГород().getТип() +" "+ address.getАдресРФ().getГород().getНаименование()+ ", ");
-        }else if ((address.getАдресРФ().getУлица().getТип() != null) && (address.getАдресРФ().getУлица().getНаименование() != null)){
+        }
+        if (address.getАдресРФ().getУлица() != null){
             builder.append(address.getАдресРФ().getУлица().getТип()+ " " +address.getАдресРФ().getУлица().getНаименование()+ ", ");
-        }else if ((address.getАдресРФ().getДом() != null)){
+        }
+        if (address.getАдресРФ().getДом() != null){
             builder.append(address.getАдресРФ().getДом() + ", ");
-        }else if ((address.getАдресРФ().getКварт() != null)){
+        }
+        if (address.getАдресРФ().getКварт() != null){
             builder.append(address.getАдресРФ().getКварт());
         }
         return builder.toString();
