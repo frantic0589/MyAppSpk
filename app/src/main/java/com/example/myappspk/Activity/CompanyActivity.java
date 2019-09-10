@@ -111,7 +111,7 @@ public class CompanyActivity extends AppCompatActivity {
 
         linearLayout.measure(widthSpec, heightSpec);
 
-        ValueAnimator animator = slideAnimator(0, linearLayout.getMeasuredHeight());
+        ValueAnimator animator = slideAnimator(0, linearLayout.getMeasuredHeightAndState());
         animator.start();
     }
     private void collapse(){
