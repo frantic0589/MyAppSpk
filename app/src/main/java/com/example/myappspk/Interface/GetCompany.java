@@ -1,6 +1,6 @@
 package com.example.myappspk.Interface;
 
-import com.example.myappspk.Model.Company;
+import com.example.myappspk.Model.ModelCompany.Company;
 
 import retrofit2.Call;
 import retrofit2.http.GET;

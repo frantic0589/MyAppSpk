@@ -14,4 +14,5 @@
     <string name="header_nalog">Специальный режим налогооблажения</string>
     <string name="header_kgn">Участие в КГН</string>
     <string name="header_supervisor">Руководитель</string>
+    <string name="company_info" />
 </resources>
