@@ -40,7 +40,7 @@ public class Main extends AppCompatActivity {
         }
 
         editTextInput = findViewById(R.id.editTextSearch);
-        listViewCompany = findViewById(R.id.lisrViewCompany);
+        listViewCompany = findViewById(R.id.listViewCompany);
         viewFlipper = findViewById(R.id.viewFlipper);
 
         listViewCompany.setOnItemClickListener(new AdapterView.OnItemClickListener() {

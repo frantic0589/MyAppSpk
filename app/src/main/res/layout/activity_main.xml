@@ -200,7 +200,7 @@
     </ViewFlipper>
 
     <ListView
-        android:id="@+id/lisrViewCompany"
+        android:id="@+id/listViewCompany"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:visibility="invisible"
