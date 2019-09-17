@@ -23,7 +23,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class Main extends AppCompatActivity {
+public class StartActivity extends AppCompatActivity {
 
     private EditText editTextInput;
     private ListView listViewCompany;
@@ -77,7 +77,7 @@ public class Main extends AppCompatActivity {
                                 listViewCompany.setAdapter(docAdapter);
                             } else {
 
-                                Toast.makeText(Main.this, "Компаний не найдено, попробуйте еще раз!", Toast.LENGTH_LONG).show();
+                                Toast.makeText(StartActivity.this, "Компаний не найдено, попробуйте еще раз!", Toast.LENGTH_LONG).show();
 
                             }
                         } catch (Exception e) {
@@ -88,7 +88,7 @@ public class Main extends AppCompatActivity {
 
                     @Override
                     public void onFailure(Call<Companies> call, Throwable t) {
-                        Toast.makeText(Main.this, "Произошла ошибка при получении запроса!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(StartActivity.this, "Произошла ошибка при получении запроса!", Toast.LENGTH_SHORT).show();
                         t.printStackTrace();
                     }
                 });

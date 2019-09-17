@@ -10,7 +10,7 @@ public class NetworkService {
 
     private static NetworkService mInstance;
 
-    public static final String BASE_URL = "https://api-gw.esphere.ru/inf-refbook-retriever/";
+    public static final String BASE_URL = "https://api-gw.esphere.ru";
     private Retrofit mRetrofit;
 
     private NetworkService() {

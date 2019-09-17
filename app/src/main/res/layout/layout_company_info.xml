@@ -1,12 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/textViewCompanyInfo"
+        android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:text="@string/company_info"/>
+        android:text="@string/header_companyName"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:paddingTop="3dp"/>
+
+    <TextView
+        android:id="@+id/layoutCompInfoName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAllCaps="true"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        tools:text="открытое акционерное общество корус консалтинг снг"
+        android:paddingBottom="3dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:text="@string/header_formed"
+        android:paddingTop="3dp"/>
+
+    <TextView
+        android:id="@+id/textViewDateOfCreate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:paddingBottom="3dp"
+        tools:text="21 июня 2010"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="14sp"
+        android:paddingTop="3dp"
+        android:text="@string/header_address"/>
+
+    <TextView
+        android:id="@+id/layoutCompanyInfoAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="3dp"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        tools:text="194100, г Санкт-Петербург, пр-кт Большой Сампсониевский, 68" />
+
 </LinearLayout>

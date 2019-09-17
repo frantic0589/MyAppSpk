@@ -19,200 +19,32 @@
             android:id="@+id/linearLayoutHeaderCompany"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="9dp"
+            android:padding="10dp"
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/textViewFullName"
+                android:id="@+id/textViewLayoutCompanyFullName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text='ООО "КОРУС КОНСАЛТИНГ СНГ"' />
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                tools:text="ООО КОРУС КОнсалтинг СНГ"/>
 
             <TextView
-                android:id="@+id/textViewInnKppOgrn"
+                android:id="@+id/textViewLayoutCompanyInnKppOgrn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="ИНН 7801392271, КПП 780201001, ОГРН 1057812752502" />
+                android:textColor="@color/black"
+                tools:text="ИНН 7801392271, КПП 780201001, ОГРН 1057812752502" />
 
             <TextView
-                android:id="@+id/textViewActing"
+                android:id="@+id/textViewlayoutCompanyActing"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Действующее" />
-
-<!--            <LinearLayout-->
-<!--                android:id="@+id/linearLayoutHeader"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="match_parent"-->
-<!--                android:orientation="horizontal">-->
-
-<!--                <TextView-->
-<!--                    android:id="@+id/textViewHeader"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_weight="1"-->
-<!--                    android:text="информация о компании"-->
-<!--                    android:textAllCaps="true"-->
-<!--                    android:textColor="@color/black"-->
-<!--                    android:textSize="18sp"-->
-<!--                    android:textStyle="bold" />-->
-<!--            </LinearLayout>-->
-
-<!--            <LinearLayout-->
-<!--                android:id="@+id/linearLayoutCompanyInfo"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="match_parent"-->
-<!--                android:orientation="vertical">-->
-
-<!--                <TextView-->
-<!--                    android:id="@+id/textViewName"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:paddingTop="3dp"-->
-<!--                    android:text="@string/header_companyName"-->
-<!--                    android:textColor="#120e1a "-->
-<!--                    android:textSize="16sp"-->
-<!--                    android:textStyle="bold" />-->
-
-<!--                <TextView-->
-<!--                    android:id="@+id/textViewCompanyName"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:paddingBottom="3dp"-->
-<!--                    android:text='акционерное общество "корус"'-->
-<!--                    android:textAllCaps="true"-->
-<!--                    android:textColor="#120e1a "-->
-<!--                    android:textSize="18sp" />-->
-
-<!--                <TextView-->
-<!--                    android:id="@+id/textViewFormed"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:paddingTop="3dp"-->
-<!--                    android:text="@string/header_formed"-->
-<!--                    android:textColor="#120e1a "-->
-<!--                    android:textSize="16sp"-->
-<!--                    android:textStyle="bold" />-->
-
-<!--                <TextView-->
-<!--                    android:id="@+id/textViewDateFormed"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:paddingBottom="3dp"-->
-<!--                    android:text="17 июня 2008"-->
-<!--                    android:textColor="#120e1a "-->
-<!--                    android:textSize="18sp" />-->
-
-<!--                <TextView-->
-<!--                    android:id="@+id/textViewHeaderAddress"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:paddingTop="3dp"-->
-<!--                    android:text="@string/header_address"-->
-<!--                    android:textColor="#120e1a"-->
-<!--                    android:textSize="16sp"-->
-<!--                    android:textStyle="bold" />-->
-
-<!--                <TextView-->
-<!--                    android:id="@+id/textViewAddress"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:paddingBottom="3dp"-->
-<!--                    android:text="125047, город Москва, переулок Тверской-Ямской 1-Й. Дом 18, Этаж 1 комната 36"-->
-<!--                    android:textColor="#120e1a "-->
-<!--                    android:textSize="18sp" />-->
-
-<!--&lt;!&ndash;                <TextView&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:id="@+id/textViewHeaderNumOfEmployees"&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:layout_width="match_parent"&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:layout_height="wrap_content"&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:paddingTop="3dp"&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:text="@string/header_num_of_employees"&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:textColor="#120e1a "&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:textSize="16sp"&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:textStyle="bold" />&ndash;&gt;-->
-
-<!--&lt;!&ndash;                <TextView&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:id="@+id/textViewNumOfEmployees"&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:layout_width="match_parent"&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:layout_height="wrap_content"&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:paddingBottom="3dp"&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:text="1 человек"&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:textColor="#120e1a "&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:textSize="18sp" />&ndash;&gt;-->
-
-<!--&lt;!&ndash;                <TextView&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:id="@+id/textViewHeaderNalog"&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:layout_width="match_parent"&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:layout_height="wrap_content"&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:paddingTop="3dp"&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:text="@string/header_nalog"&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:textColor="#120e1a "&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:textSize="16sp"&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:textStyle="bold" />&ndash;&gt;-->
-
-<!--&lt;!&ndash;                <TextView&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:id="@+id/textViewNalog"&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:layout_width="match_parent"&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:layout_height="wrap_content"&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:paddingBottom="3dp"&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:text="ОСН (Основная схема налогооблажения)"&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:textColor="#120e1a "&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:textSize="16sp" />&ndash;&gt;-->
-
-<!--&lt;!&ndash;                <TextView&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:id="@+id/textViewHeaderKgn"&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:layout_width="match_parent"&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:layout_height="wrap_content"&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:paddingTop="3dp"&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:text="@string/header_kgn"&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:textColor="#120e1a "&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:textSize="16sp"&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:textStyle="bold" />&ndash;&gt;-->
-
-<!--&lt;!&ndash;                <TextView&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:id="@+id/textViewKgn"&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:layout_width="match_parent"&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:layout_height="wrap_content"&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:paddingBottom="3dp"&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:text="Нет"&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:textColor="#120e1a "&ndash;&gt;-->
-<!--&lt;!&ndash;                    android:textSize="16sp" />&ndash;&gt;-->
-
-<!--                <TextView-->
-<!--                    android:id="@+id/textViewHeaderSupervisor"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:paddingTop="3dp"-->
-<!--                    android:text="@string/header_supervisor"-->
-<!--                    android:textColor="#120e1a "-->
-<!--                    android:textSize="16sp"-->
-<!--                    android:textStyle="bold" />-->
-
-<!--                <TextView-->
-<!--                    android:id="@+id/textViewPosition"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:text="Генеральный директор"-->
-<!--                    android:textColor="#120e1a "-->
-<!--                    android:textSize="16sp" />-->
-
-<!--                <TextView-->
-<!--                    android:id="@+id/textViewFio"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:text="Кудишина Ольга Михайловна"-->
-<!--                    android:textColor="#120e1a "-->
-<!--                    android:textSize="16sp" />-->
-
-<!--                <TextView-->
-<!--                    android:id="@+id/textViewInnSupervisor"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:text="ИНН 772643829779"-->
-<!--                    android:textColor="@color/dark_grey"-->
-<!--                    android:textSize="16sp" />-->
-<!--            </LinearLayout>-->
+                android:padding="10dp"
+                android:textColor="@color/black"
+                tools:text="Действующее" />
 
             <iammert.com.expandablelib.ExpandableLayout
                 android:layout_width="match_parent"

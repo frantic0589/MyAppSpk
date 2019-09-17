@@ -96,6 +96,58 @@ public class Company {
     @SerializedName("свДолжнФЛ")
     @Expose
     public ArrayList<свДолжнФЛ> свДолжнФЛ = new ArrayList<свДолжнФЛ>();
+    @SerializedName("свУпрОрг")
+    @Expose
+    public CвУпрОрг CвУпрОрг;
+
+    public String getAddress(){
+        StringBuilder builder = new StringBuilder();
+        if (СвАдресObject.АдресРФObject.индекс != null) {
+            builder.append(СвАдресObject.АдресРФObject.индекс + ", ");
+        }
+        if (СвАдресObject.АдресРФObject.РегионObject.тип != null){
+            builder.append(СвАдресObject.АдресРФObject.РегионObject.тип + " ");
+            if (СвАдресObject.АдресРФObject.РегионObject.наименование != null){
+                builder.append(СвАдресObject.АдресРФObject.РегионObject.наименование + ", ");
+            }
+        }
+        if (СвАдресObject.АдресРФObject.ГородObject.тип != null){
+            builder.append(СвАдресObject.АдресРФObject.ГородObject.тип +" ");
+            if (СвАдресObject.АдресРФObject.ГородObject.наименование != null){
+                builder.append(СвАдресObject.АдресРФObject.ГородObject.наименование + ", ");
+            }
+        }
+        if (СвАдресObject.АдресРФObject.УлицаObject.тип != null){
+            builder.append(СвАдресObject.АдресРФObject.УлицаObject.тип+ " ");
+            if (СвАдресObject.АдресРФObject.УлицаObject.наименование != null){
+                builder.append(СвАдресObject.АдресРФObject.УлицаObject.наименование + ", ");
+            }
+        }
+        if (СвАдресObject.АдресРФObject.дом != null){
+            builder.append(СвАдресObject.АдресРФObject.дом + ", ");
+        }
+        if (СвАдресObject.АдресРФObject.кварт != null){
+            builder.append(СвАдресObject.АдресРФObject.кварт);
+        }
+        return builder.toString();
+    }
+
+    public String getInnKppOgrn(){
+        if (кпп != null){
+            return String.format("ИНН: %s, КПП: %s, ОГРН: %s", инн, кпп, огрн);
+        } else {
+            return String.format("ИНН: %s, ОГРНИП: %s", инн, огрн);
+        }
+    }
+
+    public String getInfoAboutSupervisor(){
+        if (свДолжнФЛ != null) {
+            com.example.myappspk.Model.ModelCompany.свДолжнФЛ supervisor = свДолжнФЛ.get(0);
+            return String.format("%s\n%s %s %s", supervisor.наимДолжн, supervisor.фио.lastName, supervisor.фио.firstName, supervisor.фио.patronymic);
+        } else {
+            return String.format("Управляющая организация\n%s\nИНН %s ОГРН %s", CвУпрОрг.наимЮЛПолн, CвУпрОрг.инн, CвУпрОрг.грнДата.грн );
+        }
+    }
 }
 
 

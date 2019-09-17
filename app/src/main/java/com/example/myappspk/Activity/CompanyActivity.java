@@ -1,10 +1,7 @@
 package com.example.myappspk.Activity;
 
 import android.content.Intent;
-import android.content.res.Resources;
 import android.os.Bundle;
-import android.text.Html;
-import android.text.Spanned;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -12,9 +9,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myappspk.Controller.NetworkService;
-import com.example.myappspk.Model.ModelCompany.Company;
 import com.example.myappspk.Model.CompanyInfoCategory;
-import com.example.myappspk.Model.ModelCompany.СвАдрес;
+import com.example.myappspk.Model.ModelCompany.Company;
 import com.example.myappspk.R;
 
 import iammert.com.expandablelib.ExpandCollapseListener;
@@ -26,6 +22,9 @@ import retrofit2.Response;
 
 public class CompanyActivity extends AppCompatActivity {
 
+    private TextView textViewCompanyName;
+    private TextView textViewInnKppOgrn;
+    private TextView textViewAction;
     private String inn;
     private ExpandableLayout expandableLayout;
 
@@ -37,8 +36,11 @@ public class CompanyActivity extends AppCompatActivity {
         setContentView(R.layout.activity_company);
         Intent main = getIntent();
         inn = main.getStringExtra("inn");
-
+        textViewCompanyName = findViewById(R.id.textViewLayoutCompanyFullName);
+        textViewInnKppOgrn = findViewById(R.id.textViewLayoutCompanyInnKppOgrn);
+        textViewAction = findViewById(R.id.textViewlayoutCompanyActing);
         expandableLayout = findViewById(R.id.expandableCompanyInfo);
+
         expandableLayout.setRenderer(new ExpandableLayout.Renderer<CompanyInfoCategory, Company>() {
             @Override
             public void renderParent(View view, CompanyInfoCategory model, boolean isExpanded, int parentPosition) {
@@ -48,12 +50,10 @@ public class CompanyActivity extends AppCompatActivity {
 
             @Override
             public void renderChild(View view, Company model, int parentPosition, int childPosition) {
-                String companyInfo = "Название\n" + model.имяПолное +"\nОбразовано\n" + model.датаВып + "\nАдрес\n" + getAddrees(model)
-                        + "\nРуководитель\n" + model.свДолжнФЛ.get(0).наимДолжн +"\n"+ model.свДолжнФЛ.get(0).фио.lastName
-                        + " " +model.свДолжнФЛ.get(0).фио.firstName +" " + model.свДолжнФЛ.get(0).фио.patronymic
-                        +"\n"+ model.свДолжнФЛ.get(0).инн;
-                CharSequence charSequence = Html.fromHtml(companyInfo);
-                ((TextView)view.findViewById(R.id.textViewCompanyInfo)).setText(charSequence);
+                ((TextView)view.findViewById(R.id.layoutCompInfoName)).setText(model.имяПолное);
+                ((TextView)view.findViewById(R.id.textViewDateOfCreate)).setText(model.датаОгрн);
+                ((TextView)view.findViewById(R.id.layoutCompanyInfoAddress)).setText(model.getAddress());
+
             }
         });
 
@@ -65,7 +65,9 @@ public class CompanyActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(Call<Company> call, Response<Company> response) {
                         Company company = response.body();
-
+                        textViewCompanyName.setText(company.имяКраткое);
+                        textViewInnKppOgrn.setText(company.getInnKppOgrn());
+                        textViewAction.setText(company.статусНаим);
                         Section<CompanyInfoCategory, Company> section = new Section<>();
                         section.expanded = false;
                         CompanyInfoCategory infoCategory = new CompanyInfoCategory("информация о компании");
@@ -92,27 +94,5 @@ public class CompanyActivity extends AppCompatActivity {
                 view.findViewById(R.id.imageParent).setBackgroundResource(R.drawable.ic_keyboard_arrow_up_black_24dp);
             }
         });
-    }
-    private String getAddrees(Company company){
-        StringBuilder builder = new StringBuilder();
-        if (company.СвАдресObject.АдресРФObject.индекс != null) {
-            builder.append(company.СвАдресObject.АдресРФObject.индекс + ", ");
-        }
-        if (company.СвАдресObject.АдресРФObject.РегионObject != null){
-            builder.append(company.СвАдресObject.АдресРФObject.РегионObject.тип +" "+ company.СвАдресObject.АдресРФObject.РегионObject.наименование +", ");
-        }
-        if (company.СвАдресObject.АдресРФObject.ГородObject != null){
-            builder.append(company.СвАдресObject.АдресРФObject.ГородObject.тип +" "+ company.СвАдресObject.АдресРФObject.ГородObject.наименование+ ", ");
-        }
-        if (company.СвАдресObject.АдресРФObject.УлицаObject != null){
-            builder.append(company.СвАдресObject.АдресРФObject.УлицаObject.тип+ " " +company.СвАдресObject.АдресРФObject.УлицаObject.наименование+ ", ");
-        }
-        if (company.СвАдресObject.АдресРФObject.дом != null){
-            builder.append(company.СвАдресObject.АдресРФObject.дом + ", ");
-        }
-        if (company.СвАдресObject.АдресРФObject.кварт != null){
-            builder.append(company.СвАдресObject.АдресРФObject.кварт);
-        }
-        return builder.toString();
     }
 }

@@ -7,6 +7,6 @@ import retrofit2.http.GET;
 import retrofit2.http.Query;
 
 public interface GetCompany {
-    @GET("api/v5/get?")
+    @GET("/inf-refbook-retriever/api/v5/get?")
     Call<Company> getPostWithID(@Query("inn") String inn);
 }
