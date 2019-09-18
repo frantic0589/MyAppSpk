@@ -3,6 +3,7 @@ package com.example.myappspk.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -11,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.myappspk.Controller.NetworkService;
 import com.example.myappspk.Model.CompanyInfoCategory;
 import com.example.myappspk.Model.ModelCompany.Company;
+import com.example.myappspk.Model.ModelMetrics.Metrics;
 import com.example.myappspk.R;
 
 import iammert.com.expandablelib.ExpandCollapseListener;
@@ -26,7 +28,10 @@ public class CompanyActivity extends AppCompatActivity {
     private TextView textViewInnKppOgrn;
     private TextView textViewAction;
     private String inn;
+    private String ogrn;
+    private final String API_KEY = "38fdbacf-2ed8-410b-a7af-160758ddc549";
     private ExpandableLayout expandableLayout;
+    private ImageView imageViewTrafficCompany;
 
 
 
@@ -36,10 +41,12 @@ public class CompanyActivity extends AppCompatActivity {
         setContentView(R.layout.activity_company);
         Intent main = getIntent();
         inn = main.getStringExtra("inn");
+        ogrn = main.getStringExtra("ogrn");
         textViewCompanyName = findViewById(R.id.textViewLayoutCompanyFullName);
         textViewInnKppOgrn = findViewById(R.id.textViewLayoutCompanyInnKppOgrn);
         textViewAction = findViewById(R.id.textViewlayoutCompanyActing);
         expandableLayout = findViewById(R.id.expandableCompanyInfo);
+        imageViewTrafficCompany = findViewById(R.id.traffic_light_company);
 
         expandableLayout.setRenderer(new ExpandableLayout.Renderer<CompanyInfoCategory, Company>() {
             @Override
@@ -57,6 +64,7 @@ public class CompanyActivity extends AppCompatActivity {
             }
         });
 
+        imageViewTrafficCompany.setImageResource(R.drawable.ic_green_traffic_light);
 
         NetworkService.getInstance()
                 .getCompany()
@@ -79,6 +87,21 @@ public class CompanyActivity extends AppCompatActivity {
                     @Override
                     public void onFailure(Call<Company> call, Throwable t) {
                         Toast.makeText(getApplicationContext(), t.getMessage(), Toast.LENGTH_LONG);
+                    }
+                });
+
+        NetworkService.getInstance()
+                .getMetrics()
+                .getPostWithID(inn, ogrn, API_KEY)
+                .enqueue(new Callback<Metrics>() {
+                    @Override
+                    public void onResponse(Call<Metrics> call, Response<Metrics> response) {
+                        Metrics metrics = response.body();
+                    }
+
+                    @Override
+                    public void onFailure(Call<Metrics> call, Throwable t) {
+
                     }
                 });
         

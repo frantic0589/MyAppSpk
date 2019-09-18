@@ -105,20 +105,26 @@ public class Company {
         if (СвАдресObject.АдресРФObject.индекс != null) {
             builder.append(СвАдресObject.АдресРФObject.индекс + ", ");
         }
-        if (СвАдресObject.АдресРФObject.РегионObject.тип != null){
-            builder.append(СвАдресObject.АдресРФObject.РегионObject.тип + " ");
+        if (СвАдресObject.АдресРФObject.РегионObject != null){
+            if(СвАдресObject.АдресРФObject.РегионObject.тип !=null) {
+                builder.append(СвАдресObject.АдресРФObject.РегионObject.тип + " ");
+            }
             if (СвАдресObject.АдресРФObject.РегионObject.наименование != null){
                 builder.append(СвАдресObject.АдресРФObject.РегионObject.наименование + ", ");
             }
         }
-        if (СвАдресObject.АдресРФObject.ГородObject.тип != null){
-            builder.append(СвАдресObject.АдресРФObject.ГородObject.тип +" ");
+        if (СвАдресObject.АдресРФObject.ГородObject != null){
+            if (СвАдресObject.АдресРФObject.ГородObject.тип != null) {
+                builder.append(СвАдресObject.АдресРФObject.ГородObject.тип + " ");
+            }
             if (СвАдресObject.АдресРФObject.ГородObject.наименование != null){
                 builder.append(СвАдресObject.АдресРФObject.ГородObject.наименование + ", ");
             }
         }
-        if (СвАдресObject.АдресРФObject.УлицаObject.тип != null){
-            builder.append(СвАдресObject.АдресРФObject.УлицаObject.тип+ " ");
+        if (СвАдресObject.АдресРФObject.УлицаObject != null){
+            if (СвАдресObject.АдресРФObject.УлицаObject.тип != null) {
+                builder.append(СвАдресObject.АдресРФObject.УлицаObject.тип + " ");
+            }
             if (СвАдресObject.АдресРФObject.УлицаObject.наименование != null){
                 builder.append(СвАдресObject.АдресРФObject.УлицаObject.наименование + ", ");
             }

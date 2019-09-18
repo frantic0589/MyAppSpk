@@ -1,6 +1,7 @@
 package com.example.myappspk.Controller;
 
 import com.example.myappspk.Interface.GetCompany;
+import com.example.myappspk.Interface.GetMetrics;
 import com.example.myappspk.Interface.SearchCompany;
 
 import retrofit2.Retrofit;
@@ -36,5 +37,7 @@ public class NetworkService {
     {
         return mRetrofit.create(GetCompany.class);
     }
+
+    public GetMetrics getMetrics() {return mRetrofit.create(GetMetrics.class);}
 
 }

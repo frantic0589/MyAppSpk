@@ -48,6 +48,7 @@ public class StartActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intentCompany = new Intent(getApplicationContext(), CompanyActivity.class);
                 intentCompany.putExtra("inn", companyList.get(i).getInn());
+                intentCompany.putExtra("ogrn",companyList.get(i).getOgrn());
                 startActivity(intentCompany);
             }
         });

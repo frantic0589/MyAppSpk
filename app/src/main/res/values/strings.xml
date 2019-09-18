@@ -15,4 +15,5 @@
     <string name="header_kgn">Участие в КГН</string>
     <string name="header_supervisor">Руководитель</string>
     <string name="company_info" />
+    <string name="company">Компания</string>
 </resources>
