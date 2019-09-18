@@ -34,7 +34,7 @@ public class CompanyActivity extends AppCompatActivity {
 
     private ImageView imageViewTrafficCompany;
     private TextView textViewTrifficCompany;
-    private TextView textViewTraffikDataCompany;
+    private TextView textViewTraffiсDataCompany;
 
     private ImageView imageViewTrafficFinances;
     private TextView textViewTrafficFinances;
@@ -44,8 +44,8 @@ public class CompanyActivity extends AppCompatActivity {
     private TextView textViewTrafficRisks;
     private TextView textViewTrafficDataRisks;
 
-    private ImageView imageViewTraffiCсontract;
-    private TextView textViewTraffiCсontract;
+    private ImageView imageViewTrafficCсontract;
+    private TextView textViewTrafficContract;
     private TextView textViewTrafficDataContract;
 
 
@@ -64,7 +64,7 @@ public class CompanyActivity extends AppCompatActivity {
 
         imageViewTrafficCompany = findViewById(R.id.traffic_light_company);
         textViewTrifficCompany = findViewById(R.id.textViewCompany);
-        textViewTraffikDataCompany = findViewById(R.id.textViewDataCompany);
+        textViewTraffiсDataCompany = findViewById(R.id.textViewDataCompany);
 
         imageViewTrafficFinances = findViewById(R.id.traffic_light_finances);
         textViewTrafficFinances = findViewById(R.id.textViewFinances);
@@ -74,8 +74,8 @@ public class CompanyActivity extends AppCompatActivity {
         textViewTrafficRisks = findViewById(R.id.textViewRisk);
         textViewTrafficDataRisks = findViewById(R.id.textViewDataRisk);
 
-        imageViewTraffiCсontract = findViewById(R.id.traffic_light_сontract);
-        textViewTraffiCсontract = findViewById(R.id.textViewContract);
+        imageViewTrafficCсontract = findViewById(R.id.traffic_light_сontract);
+        textViewTrafficContract = findViewById(R.id.textViewContract);
         textViewTrafficDataContract = findViewById(R.id.textViewDataContract);
 
         expandableLayout.setRenderer(new ExpandableLayout.Renderer<CompanyInfoCategory, Company>() {
@@ -101,67 +101,98 @@ public class CompanyActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(Call<Metrics> call, Response<Metrics> response) {
                         Metrics metrics = response.body();
-
+                        textViewTrifficCompany.setText(metrics.getSections().getCOMPANY().getTitle());
                         switch (metrics.getSections().getCOMPANY().getValue()) {
                             case (-1):
                                 imageViewTrafficCompany.setImageResource(R.drawable.ic_grey_traffic_light);
+                                textViewTraffiсDataCompany.setText(R.string.not_data_traffic);
+                                textViewTraffiсDataCompany.setTextColor(getColor(R.color.text_grey));
                                 break;
                             case (0):
                                 imageViewTrafficCompany.setImageResource(R.drawable.ic_red_traffic_light);
+                                textViewTraffiсDataCompany.setText(R.string.negative_factors_traffic);
+                                textViewTraffiсDataCompany.setTextColor(getColor(R.color.text_red));
                                 break;
                             case (1):
                                 imageViewTrafficCompany.setImageResource(R.drawable.ic_orange_traffic_light);
+                                textViewTraffiсDataCompany.setText(R.string.attention_traffic);
+                                textViewTraffiсDataCompany.setTextColor(getColor(R.color.text_orange));
                                 break;
                             case (2):
                                 imageViewTrafficCompany.setImageResource(R.drawable.ic_green_traffic_light);
-                                break;
-                        }
-                        textViewTrifficCompany.setText(metrics.getSections().getCOMPANY().getTitle());
-                        switch (metrics.getSections().getFINANCE().getValue()) {
-                            case (-1):
-                                imageViewTrafficFinances.setImageResource(R.drawable.ic_grey_traffic_light);
-                                break;
-                            case (0):
-                                imageViewTrafficFinances.setImageResource(R.drawable.ic_red_traffic_light);
-                                break;
-                            case (1):
-                                imageViewTrafficFinances.setImageResource(R.drawable.ic_orange_traffic_light);
-                                break;
-                            case (2):
-                                imageViewTrafficFinances.setImageResource(R.drawable.ic_green_traffic_light);
+                                textViewTraffiсDataCompany.setText(R.string.all_good_traffic);
+                                textViewTraffiсDataCompany.setTextColor(getColor(R.color.text_green));
                                 break;
                         }
                         textViewTrafficFinances.setText(metrics.getSections().getFINANCE().getTitle());
-                        switch (metrics.getSections().getBUSINESSRISKS().getValue()) {
+                        switch (metrics.getSections().getFINANCE().getValue()) {
                             case (-1):
-                                imageViewTrafficRisks.setImageResource(R.drawable.ic_grey_traffic_light);
+                                imageViewTrafficFinances.setImageResource(R.drawable.ic_grey_traffic_light);
+                                textViewTrafficDataFinances.setText(R.string.not_data_traffic);
+                                textViewTrafficDataFinances.setTextColor(getColor(R.color.text_grey));
                                 break;
                             case (0):
-                                imageViewTrafficRisks.setImageResource(R.drawable.ic_red_traffic_light);
+                                imageViewTrafficFinances.setImageResource(R.drawable.ic_red_traffic_light);
+                                textViewTrafficDataFinances.setText(R.string.negative_factors_traffic);
+                                textViewTrafficDataFinances.setTextColor(getColor(R.color.text_red));
                                 break;
                             case (1):
-                                imageViewTrafficRisks.setImageResource(R.drawable.ic_orange_traffic_light);
+                                imageViewTrafficFinances.setImageResource(R.drawable.ic_orange_traffic_light);
+                                textViewTrafficDataFinances.setText(R.string.attention_traffic);
+                                textViewTrafficDataFinances.setTextColor(getColor(R.color.text_orange));
                                 break;
                             case (2):
-                                imageViewTrafficRisks.setImageResource(R.drawable.ic_green_traffic_light);
+                                imageViewTrafficFinances.setImageResource(R.drawable.ic_green_traffic_light);
+                                textViewTrafficDataFinances.setText(R.string.all_good_traffic);
+                                textViewTrafficDataFinances.setTextColor(getColor(R.color.text_green));
                                 break;
                         }
                         textViewTrafficRisks.setText(metrics.getSections().getBUSINESSRISKS().getTitle());
-                        switch (metrics.getSections().getGZ().getValue()) {
+                        switch (metrics.getSections().getBUSINESSRISKS().getValue()) {
                             case (-1):
-                                imageViewTraffiCсontract.setImageResource(R.drawable.ic_grey_traffic_light);
+                                imageViewTrafficRisks.setImageResource(R.drawable.ic_grey_traffic_light);
+                                textViewTrafficDataRisks.setText(R.string.not_data_traffic);
+                                textViewTrafficDataRisks.setTextColor(getColor(R.color.text_grey));
                                 break;
                             case (0):
-                                imageViewTraffiCсontract.setImageResource(R.drawable.ic_red_traffic_light);
+                                imageViewTrafficRisks.setImageResource(R.drawable.ic_red_traffic_light);
+                                textViewTrafficDataRisks.setText(R.string.negative_factors_traffic);
+                                textViewTrafficDataRisks.setTextColor(getColor(R.color.text_red));
                                 break;
                             case (1):
-                                imageViewTraffiCсontract.setImageResource(R.drawable.ic_orange_traffic_light);
+                                imageViewTrafficRisks.setImageResource(R.drawable.ic_orange_traffic_light);
+                                textViewTrafficDataRisks.setText(R.string.attention_traffic);
+                                textViewTrafficDataRisks.setTextColor(getColor(R.color.text_orange));
                                 break;
                             case (2):
-                                imageViewTraffiCсontract.setImageResource(R.drawable.ic_green_traffic_light);
+                                imageViewTrafficRisks.setImageResource(R.drawable.ic_green_traffic_light);
+                                textViewTrafficDataRisks.setText(R.string.all_good_traffic);
+                                textViewTrafficDataRisks.setTextColor(getColor(R.color.text_green));
                                 break;
                         }
-                        textViewTraffiCсontract.setText(metrics.getSections().getGZ().getTitle());
+                        textViewTrafficContract.setText(metrics.getSections().getGZ().getTitle());
+                        switch (metrics.getSections().getGZ().getValue()) {
+                            case (-1):
+                                imageViewTrafficCсontract.setImageResource(R.drawable.ic_grey_traffic_light);
+                                textViewTrafficDataContract.setText(R.string.not_data_traffic);
+                                textViewTrafficDataContract.setTextColor(getColor(R.color.text_grey));
+                                break;
+                            case (0):
+                                imageViewTrafficCсontract.setImageResource(R.drawable.ic_red_traffic_light);
+                                textViewTrafficDataContract.setText(R.string.negative_factors_traffic);
+                                textViewTrafficDataContract.setTextColor(getColor(R.color.text_red));
+                                break;
+                            case (1):
+                                imageViewTrafficCсontract.setImageResource(R.drawable.ic_orange_traffic_light);
+                                textViewTrafficDataContract.setText(R.string.attention_traffic);
+                                textViewTrafficDataContract.setTextColor(getColor(R.color.text_orange));
+                                break;
+                            case (2):
+                                imageViewTrafficCсontract.setImageResource(R.drawable.ic_green_traffic_light);
+                                textViewTrafficDataContract.setText(R.string.all_good_traffic);
+                                textViewTrafficDataContract.setTextColor(getColor(R.color.text_green));
+                                break;
+                        }
                     }
 
                     @Override

@@ -16,4 +16,8 @@
     <string name="header_supervisor">Руководитель</string>
     <string name="company_info" />
     <string name="company">Компания</string>
+    <string name="not_data_traffic">Нет данных</string>
+    <string name="negative_factors_traffic">Негативные факторы</string>
+    <string name="attention_traffic">Обратите внимание</string>
+    <string name="all_good_traffic">Всё хорошо</string>
 </resources>
