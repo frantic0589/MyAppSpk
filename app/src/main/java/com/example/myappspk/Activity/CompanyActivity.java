@@ -31,7 +31,22 @@ public class CompanyActivity extends AppCompatActivity {
     private String ogrn;
     private final String API_KEY = "38fdbacf-2ed8-410b-a7af-160758ddc549";
     private ExpandableLayout expandableLayout;
+
     private ImageView imageViewTrafficCompany;
+    private TextView textViewTrifficCompany;
+    private TextView textViewTraffikDataCompany;
+
+    private ImageView imageViewTrafficFinances;
+    private TextView textViewTrafficFinances;
+    private TextView textViewTrafficDataFinances;
+
+    private ImageView imageViewTrafficRisks;
+    private TextView textViewTrafficRisks;
+    private TextView textViewTrafficDataRisks;
+
+    private ImageView imageViewTraffiCсontract;
+    private TextView textViewTraffiCсontract;
+    private TextView textViewTrafficDataContract;
 
 
 
@@ -46,7 +61,22 @@ public class CompanyActivity extends AppCompatActivity {
         textViewInnKppOgrn = findViewById(R.id.textViewLayoutCompanyInnKppOgrn);
         textViewAction = findViewById(R.id.textViewlayoutCompanyActing);
         expandableLayout = findViewById(R.id.expandableCompanyInfo);
+
         imageViewTrafficCompany = findViewById(R.id.traffic_light_company);
+        textViewTrifficCompany = findViewById(R.id.textViewCompany);
+        textViewTraffikDataCompany = findViewById(R.id.textViewDataCompany);
+
+        imageViewTrafficFinances = findViewById(R.id.traffic_light_finances);
+        textViewTrafficFinances = findViewById(R.id.textViewFinances);
+        textViewTrafficDataFinances = findViewById(R.id.textViewDataFinances);
+
+        imageViewTrafficRisks = findViewById(R.id.traffic_light_risk);
+        textViewTrafficRisks = findViewById(R.id.textViewRisk);
+        textViewTrafficDataRisks = findViewById(R.id.textViewDataRisk);
+
+        imageViewTraffiCсontract = findViewById(R.id.traffic_light_сontract);
+        textViewTraffiCсontract = findViewById(R.id.textViewContract);
+        textViewTrafficDataContract = findViewById(R.id.textViewDataContract);
 
         expandableLayout.setRenderer(new ExpandableLayout.Renderer<CompanyInfoCategory, Company>() {
             @Override
@@ -64,7 +94,81 @@ public class CompanyActivity extends AppCompatActivity {
             }
         });
 
-        imageViewTrafficCompany.setImageResource(R.drawable.ic_green_traffic_light);
+        NetworkService.getInstance()
+                .getMetrics()
+                .getPostWithID(inn, ogrn, API_KEY)
+                .enqueue(new Callback<Metrics>() {
+                    @Override
+                    public void onResponse(Call<Metrics> call, Response<Metrics> response) {
+                        Metrics metrics = response.body();
+
+                        switch (metrics.getSections().getCOMPANY().getValue()) {
+                            case (-1):
+                                imageViewTrafficCompany.setImageResource(R.drawable.ic_grey_traffic_light);
+                                break;
+                            case (0):
+                                imageViewTrafficCompany.setImageResource(R.drawable.ic_red_traffic_light);
+                                break;
+                            case (1):
+                                imageViewTrafficCompany.setImageResource(R.drawable.ic_orange_traffic_light);
+                                break;
+                            case (2):
+                                imageViewTrafficCompany.setImageResource(R.drawable.ic_green_traffic_light);
+                                break;
+                        }
+                        textViewTrifficCompany.setText(metrics.getSections().getCOMPANY().getTitle());
+                        switch (metrics.getSections().getFINANCE().getValue()) {
+                            case (-1):
+                                imageViewTrafficFinances.setImageResource(R.drawable.ic_grey_traffic_light);
+                                break;
+                            case (0):
+                                imageViewTrafficFinances.setImageResource(R.drawable.ic_red_traffic_light);
+                                break;
+                            case (1):
+                                imageViewTrafficFinances.setImageResource(R.drawable.ic_orange_traffic_light);
+                                break;
+                            case (2):
+                                imageViewTrafficFinances.setImageResource(R.drawable.ic_green_traffic_light);
+                                break;
+                        }
+                        textViewTrafficFinances.setText(metrics.getSections().getFINANCE().getTitle());
+                        switch (metrics.getSections().getBUSINESSRISKS().getValue()) {
+                            case (-1):
+                                imageViewTrafficRisks.setImageResource(R.drawable.ic_grey_traffic_light);
+                                break;
+                            case (0):
+                                imageViewTrafficRisks.setImageResource(R.drawable.ic_red_traffic_light);
+                                break;
+                            case (1):
+                                imageViewTrafficRisks.setImageResource(R.drawable.ic_orange_traffic_light);
+                                break;
+                            case (2):
+                                imageViewTrafficRisks.setImageResource(R.drawable.ic_green_traffic_light);
+                                break;
+                        }
+                        textViewTrafficRisks.setText(metrics.getSections().getBUSINESSRISKS().getTitle());
+                        switch (metrics.getSections().getGZ().getValue()) {
+                            case (-1):
+                                imageViewTraffiCсontract.setImageResource(R.drawable.ic_grey_traffic_light);
+                                break;
+                            case (0):
+                                imageViewTraffiCсontract.setImageResource(R.drawable.ic_red_traffic_light);
+                                break;
+                            case (1):
+                                imageViewTraffiCсontract.setImageResource(R.drawable.ic_orange_traffic_light);
+                                break;
+                            case (2):
+                                imageViewTraffiCсontract.setImageResource(R.drawable.ic_green_traffic_light);
+                                break;
+                        }
+                        textViewTraffiCсontract.setText(metrics.getSections().getGZ().getTitle());
+                    }
+
+                    @Override
+                    public void onFailure(Call<Metrics> call, Throwable t) {
+
+                    }
+                });
 
         NetworkService.getInstance()
                 .getCompany()
@@ -90,20 +194,7 @@ public class CompanyActivity extends AppCompatActivity {
                     }
                 });
 
-        NetworkService.getInstance()
-                .getMetrics()
-                .getPostWithID(inn, ogrn, API_KEY)
-                .enqueue(new Callback<Metrics>() {
-                    @Override
-                    public void onResponse(Call<Metrics> call, Response<Metrics> response) {
-                        Metrics metrics = response.body();
-                    }
 
-                    @Override
-                    public void onFailure(Call<Metrics> call, Throwable t) {
-
-                    }
-                });
         
         expandableLayout.setCollapseListener(new ExpandCollapseListener.CollapseListener<CompanyInfoCategory>() {
             @Override

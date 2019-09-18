@@ -26,10 +26,10 @@
                 android:id="@+id/textViewLayoutCompanyFullName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"
-                android:textStyle="bold"
                 android:textColor="@color/black"
-                tools:text="ООО КОРУС КОнсалтинг СНГ"/>
+                android:textSize="20sp"
+                android:textStyle="bold"
+                tools:text="ООО КОРУС КОнсалтинг СНГ" />
 
             <TextView
                 android:id="@+id/textViewLayoutCompanyInnKppOgrn"
@@ -46,22 +46,122 @@
                 android:textColor="@color/black"
                 tools:text="Действующее" />
 
-            <LinearLayout
+            <RelativeLayout
+                android:id="@+id/company"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
                 <ImageView
                     android:id="@+id/traffic_light_company"
                     android:layout_width="22dp"
-                    android:layout_height="22dp" />
+                    android:layout_height="22dp"
+                    android:layout_margin="11dp" />
+
                 <TextView
-                    android:textSize="14sp"
+                    android:id="@+id/textViewCompany"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="44dp"
+                    android:paddingBottom="20dp"
                     android:textColor="@color/black"
-                    android:text="@string/company"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
-            </LinearLayout>
+                    android:textSize="14sp"/>
+
+                <TextView
+                    android:id="@+id/textViewDataCompany"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:paddingStart="44dp"
+                    android:paddingTop="20dp"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+            android:id="@+id/finances"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/traffic_light_finances"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_margin="11dp" />
+
+            <TextView
+                android:id="@+id/textViewFinances"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="44dp"
+                android:paddingBottom="20dp"
+                android:textColor="@color/black"
+                android:textSize="14sp"/>
+
+            <TextView
+                android:id="@+id/textViewDataFinances"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:paddingStart="44dp"
+                android:paddingTop="20dp"/>
+        </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/business_risks"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/traffic_light_risk"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:layout_margin="11dp" />
+
+                <TextView
+                    android:id="@+id/textViewRisk"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="44dp"
+                    android:paddingBottom="20dp"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"/>
+
+                <TextView
+                    android:id="@+id/textViewDataRisk"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:paddingStart="44dp"
+                    android:paddingTop="20dp"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/gos_сontract"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="10dp">
+
+                <ImageView
+                    android:id="@+id/traffic_light_сontract"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:layout_margin="11dp" />
+
+                <TextView
+                    android:id="@+id/textViewContract"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="44dp"
+                    android:paddingBottom="20dp"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/textViewDataContract"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:paddingStart="44dp"
+                    android:paddingTop="20dp"/>
+            </RelativeLayout>
 
             <iammert.com.expandablelib.ExpandableLayout
                 android:layout_width="match_parent"
