@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardViewItemCompany"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp">
+
+    <RelativeLayout
+        android:id="@+id/linearLayoutItemCompany"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@drawable/border_non_radius">
+
+        <TextView
+            android:id="@+id/textViewItemCardCompanyName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/light_brown"
+            android:textAllCaps="true"
+            android:textSize="18sp"
+            android:padding="10dp"
+            android:textColor="@color/white"
+            tools:text="АО КОРУС" />
+
+        <TextView
+            android:id="@+id/textViewItemCardInnKppOgrn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textViewItemCardCompanyName"
+            android:textSize="12sp"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="5dp"
+            tools:text="ИНН: 7719685363, КПП: 771001001, ОГРН: 1087746750871" />
+
+        <TextView
+            android:id="@+id/textViewItemCardActive"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="5dp"
+            android:layout_below="@+id/textViewItemCardInnKppOgrn"
+            tools:text="Действующее" />
+
+        <TextView
+            android:id="@+id/textViewItemCardSupervisor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="5dp"
+            android:layout_below="@+id/textViewItemCardActive"
+            tools:text="Кудишина О. М." />
+
+        <TextView
+            android:id="@+id/textViewItemCardInnSupervisor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/textViewItemCardSupervisor"
+            android:layout_toEndOf="@+id/textViewItemCardSupervisor"
+            tools:text="ИНН: 772643829779" />
+
+        <TextView
+            android:id="@+id/textViewServicesSector"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textViewItemCardSupervisor"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginBottom="5dp"
+            tools:text="Сфера услуг" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            app:srcCompat="@drawable/ic_chevron_right_black_24dp" />
+
+    </RelativeLayout>
+
+
+</androidx.cardview.widget.CardView>

@@ -3,21 +3,21 @@ package com.example.myappspk.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.ItemTouchHelper;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.myappspk.Adapter.DocAdapter;
+import com.example.myappspk.Adapter.CompanyAdapter;
 import com.example.myappspk.Controller.NetworkService;
 import com.example.myappspk.Model.Companies;
 import com.example.myappspk.R;
-
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -26,9 +26,9 @@ import retrofit2.Response;
 public class StartActivity extends AppCompatActivity {
 
     private EditText editTextInput;
-    private ListView listViewCompany;
     private ViewFlipper viewFlipper;
-    private List<Companies.Doc> companyList;
+    private RecyclerView recyclerViewItemCompany;
+    private CompanyAdapter companyAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,18 +40,9 @@ public class StartActivity extends AppCompatActivity {
         }
 
         editTextInput = findViewById(R.id.editTextSearch);
-        listViewCompany = findViewById(R.id.listViewCompany);
         viewFlipper = findViewById(R.id.viewFlipper);
+        recyclerViewItemCompany = findViewById(R.id.recyclerViewItemCompany);
 
-        listViewCompany.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intentCompany = new Intent(getApplicationContext(), CompanyActivity.class);
-                intentCompany.putExtra("inn", companyList.get(i).getInn());
-                intentCompany.putExtra("ogrn",companyList.get(i).getOgrn());
-                startActivity(intentCompany);
-            }
-        });
 
     }
 
@@ -62,7 +53,7 @@ public class StartActivity extends AppCompatActivity {
 
         NetworkService.getInstance()
                 .getSearchCompany()
-                .getPostWithID(true, searchText, 10)
+                .getPostWithID(true, searchText, 100)
                 .enqueue(new Callback<Companies>() {
                     @Override
                     public void onResponse(Call<Companies> call, Response<Companies> response) {
@@ -71,11 +62,12 @@ public class StartActivity extends AppCompatActivity {
                         Companies company = response.body();
                         try {
                             if (company.getTotal() != 0){
-                                companyList = company.getDocs();
-                                DocAdapter docAdapter = new DocAdapter(getApplicationContext(), companyList);
+                                companyAdapter = new CompanyAdapter(company);
                                 viewFlipper.setVisibility(View.GONE);
-                                listViewCompany.setVisibility(View.VISIBLE);
-                                listViewCompany.setAdapter(docAdapter);
+                                recyclerViewItemCompany.setVisibility(View.VISIBLE);
+                                recyclerViewItemCompany.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+                                recyclerViewItemCompany.setAdapter(companyAdapter);
+
                             } else {
 
                                 Toast.makeText(StartActivity.this, "Компаний не найдено, попробуйте еще раз!", Toast.LENGTH_LONG).show();
@@ -94,5 +86,21 @@ public class StartActivity extends AppCompatActivity {
                     }
                 });
 
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+            @Override
+            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+                return false;
+            }
+
+            @Override
+            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+                Intent intent = new Intent(getApplicationContext(), CompanyActivity.class);
+
+                intent.putExtra("inn", companyAdapter.getDocList().get(viewHolder.getAdapterPosition()).getInn());
+                intent.putExtra("ogrn", companyAdapter.getDocList().get(viewHolder.getAdapterPosition()).getOgrn());
+                startActivity(intent);
+            }
+        });
+        itemTouchHelper.attachToRecyclerView(recyclerViewItemCompany);
     }
 }
