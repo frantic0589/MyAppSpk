@@ -2,11 +2,13 @@ package com.example.myappspk.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myappspk.Controller.NetworkService;
@@ -14,6 +16,7 @@ import com.example.myappspk.Model.CompanyInfoCategory;
 import com.example.myappspk.Model.ModelCompany.Company;
 import com.example.myappspk.Model.ModelMetrics.Metrics;
 import com.example.myappspk.R;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import iammert.com.expandablelib.ExpandCollapseListener;
 import iammert.com.expandablelib.ExpandableLayout;
@@ -31,9 +34,10 @@ public class CompanyActivity extends AppCompatActivity {
     private String ogrn;
     private final String API_KEY = "38fdbacf-2ed8-410b-a7af-160758ddc549";
     private ExpandableLayout expandableLayout;
+    private BottomNavigationView bottomNavigationMenu;
 
     private ImageView imageViewTrafficCompany;
-    private TextView textViewTrifficCompany;
+    private TextView textViewTrafficCompany;
     private TextView textViewTraffiсDataCompany;
 
     private ImageView imageViewTrafficFinances;
@@ -44,11 +48,9 @@ public class CompanyActivity extends AppCompatActivity {
     private TextView textViewTrafficRisks;
     private TextView textViewTrafficDataRisks;
 
-    private ImageView imageViewTrafficCсontract;
+    private ImageView imageViewTrafficContract;
     private TextView textViewTrafficContract;
     private TextView textViewTrafficDataContract;
-
-
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -63,7 +65,7 @@ public class CompanyActivity extends AppCompatActivity {
         expandableLayout = findViewById(R.id.expandableCompanyInfo);
 
         imageViewTrafficCompany = findViewById(R.id.traffic_light_company);
-        textViewTrifficCompany = findViewById(R.id.textViewCompany);
+        textViewTrafficCompany = findViewById(R.id.textViewCompany);
         textViewTraffiсDataCompany = findViewById(R.id.textViewDataCompany);
 
         imageViewTrafficFinances = findViewById(R.id.traffic_light_finances);
@@ -74,9 +76,10 @@ public class CompanyActivity extends AppCompatActivity {
         textViewTrafficRisks = findViewById(R.id.textViewRisk);
         textViewTrafficDataRisks = findViewById(R.id.textViewDataRisk);
 
-        imageViewTrafficCсontract = findViewById(R.id.traffic_light_сontract);
+        imageViewTrafficContract = findViewById(R.id.traffic_light_сontract);
         textViewTrafficContract = findViewById(R.id.textViewContract);
         textViewTrafficDataContract = findViewById(R.id.textViewDataContract);
+        bottomNavigationMenu = findViewById(R.id.bottom_navigation);
 
         expandableLayout.setRenderer(new ExpandableLayout.Renderer<CompanyInfoCategory, Company>() {
             @Override
@@ -101,7 +104,7 @@ public class CompanyActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(Call<Metrics> call, Response<Metrics> response) {
                         Metrics metrics = response.body();
-                        textViewTrifficCompany.setText(metrics.getSections().getCOMPANY().getTitle());
+                        textViewTrafficCompany.setText(metrics.getSections().getCOMPANY().getTitle());
                         switch (metrics.getSections().getCOMPANY().getValue()) {
                             case (-1):
                                 imageViewTrafficCompany.setImageResource(R.drawable.ic_grey_traffic_light);
@@ -173,22 +176,22 @@ public class CompanyActivity extends AppCompatActivity {
                         textViewTrafficContract.setText(metrics.getSections().getGZ().getTitle());
                         switch (metrics.getSections().getGZ().getValue()) {
                             case (-1):
-                                imageViewTrafficCсontract.setImageResource(R.drawable.ic_grey_traffic_light);
+                                imageViewTrafficContract.setImageResource(R.drawable.ic_grey_traffic_light);
                                 textViewTrafficDataContract.setText(R.string.not_data_traffic);
                                 textViewTrafficDataContract.setTextColor(getColor(R.color.text_grey));
                                 break;
                             case (0):
-                                imageViewTrafficCсontract.setImageResource(R.drawable.ic_red_traffic_light);
+                                imageViewTrafficContract.setImageResource(R.drawable.ic_red_traffic_light);
                                 textViewTrafficDataContract.setText(R.string.negative_factors_traffic);
                                 textViewTrafficDataContract.setTextColor(getColor(R.color.text_red));
                                 break;
                             case (1):
-                                imageViewTrafficCсontract.setImageResource(R.drawable.ic_orange_traffic_light);
+                                imageViewTrafficContract.setImageResource(R.drawable.ic_orange_traffic_light);
                                 textViewTrafficDataContract.setText(R.string.attention_traffic);
                                 textViewTrafficDataContract.setTextColor(getColor(R.color.text_orange));
                                 break;
                             case (2):
-                                imageViewTrafficCсontract.setImageResource(R.drawable.ic_green_traffic_light);
+                                imageViewTrafficContract.setImageResource(R.drawable.ic_green_traffic_light);
                                 textViewTrafficDataContract.setText(R.string.all_good_traffic);
                                 textViewTrafficDataContract.setTextColor(getColor(R.color.text_green));
                                 break;
@@ -237,6 +240,29 @@ public class CompanyActivity extends AppCompatActivity {
             @Override
             public void onExpanded(int parentIndex, CompanyInfoCategory parent, View view) {
                 view.findViewById(R.id.imageParent).setBackgroundResource(R.drawable.ic_keyboard_arrow_up_black_24dp);
+            }
+        });
+
+        bottomNavigationMenu.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                switch (menuItem.getItemId()){
+                    case R.id.egr:
+
+                        break;
+                    case R.id.finance:
+                        Intent intentFinance = new Intent(getApplicationContext(), FinanceActivity.class);
+                        intentFinance.putExtra("inn", inn);
+                        startActivity(intentFinance);
+                        break;
+                    case R.id.contracts:
+
+                        break;
+                    case R.id.disputes:
+
+                        break;
+                }
+                return false;
             }
         });
     }

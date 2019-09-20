@@ -37,4 +37,5 @@ dependencies {
     implementation 'io.grpc:grpc-stub:1.23.0'
     compileOnly 'org.projectlombok:lombok:1.18.10'
     annotationProcessor 'org.projectlombok:lombok:1.18.10'
+    implementation 'com.jjoe64:graphview:4.2.2'
 }

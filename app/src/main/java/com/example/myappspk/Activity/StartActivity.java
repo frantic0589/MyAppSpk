@@ -30,6 +30,7 @@ public class StartActivity extends AppCompatActivity {
     private RecyclerView recyclerViewItemCompany;
     private CompanyAdapter companyAdapter;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +46,13 @@ public class StartActivity extends AppCompatActivity {
 
 
     }
-
+    @Override
+    protected void onStart(){
+        super.onStart();
+        if (companyAdapter != null){
+            companyAdapter.notifyDataSetChanged();
+        }
+    }
 
     public void search(View view)
     {

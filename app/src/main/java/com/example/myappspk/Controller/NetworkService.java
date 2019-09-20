@@ -1,6 +1,7 @@
 package com.example.myappspk.Controller;
 
 import com.example.myappspk.Interface.GetCompany;
+import com.example.myappspk.Interface.GetFinres;
 import com.example.myappspk.Interface.GetMetrics;
 import com.example.myappspk.Interface.SearchCompany;
 
@@ -39,5 +40,7 @@ public class NetworkService {
     }
 
     public GetMetrics getMetrics() {return mRetrofit.create(GetMetrics.class);}
+
+    public GetFinres getFinres() {return mRetrofit.create(GetFinres.class);}
 
 }

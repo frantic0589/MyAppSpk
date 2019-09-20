@@ -1,56 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
-    android:padding="10dp"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:background="@drawable/border_non_radius"
+    android:orientation="vertical"
+    android:padding="10dp">
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingTop="3dp"
         android:text="@string/header_companyName"
         android:textColor="@color/black"
         android:textSize="14sp"
-        android:textStyle="bold"
-        android:paddingTop="3dp"/>
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/layoutCompInfoName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingBottom="3dp"
         android:textAllCaps="true"
         android:textColor="@color/black"
         android:textSize="14sp"
-        tools:text="открытое акционерное общество корус консалтинг снг"
-        android:paddingBottom="3dp"/>
+        tools:text="открытое акционерное общество корус консалтинг снг" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingTop="3dp"
+        android:text="@string/header_formed"
         android:textColor="@color/black"
         android:textSize="14sp"
-        android:textStyle="bold"
-        android:text="@string/header_formed"
-        android:paddingTop="3dp"/>
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/textViewDateOfCreate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingBottom="3dp"
         android:textColor="@color/black"
         android:textSize="14sp"
-        android:paddingBottom="3dp"
-        tools:text="21 июня 2010"/>
+        tools:text="21 июня 2010" />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        android:textSize="14sp"
         android:paddingTop="3dp"
-        android:text="@string/header_address"/>
+        android:text="@string/header_address"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/layoutCompanyInfoAddress"
